@@ -25,6 +25,7 @@ export default function SessionDetailPage() {
   const [loading, setLoading] = useState(true);
   const [isBooking, setIsBooking] = useState(false);
   const { toast } = useToast();
+  const isBooked = user?.bookedSessions.includes(id) ?? false;
 
   useEffect(() => {
     if (id) {
@@ -48,7 +49,6 @@ export default function SessionDetailPage() {
     notFound();
   }
 
-  const isBooked = user?.bookedSessions.includes(session.id) ?? false;
 
   const handleBooking = async () => {
     if (!user) {

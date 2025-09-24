@@ -70,6 +70,7 @@ export default function ProfilePage() {
             title: "Profile Updated",
             description: "Your profile information has been saved successfully.",
         });
+        router.push('/dashboard');
     } catch(err) {
         toast({
             variant: "destructive",
