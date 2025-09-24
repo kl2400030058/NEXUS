@@ -133,7 +133,7 @@ The file structure has been organized to support a modern Next.js application.
 
 ## 8. File Structure
 
-```
+`\````
 .
 ├── .env
 ├── README.md
@@ -194,7 +194,7 @@ The file structure has been organized to support a modern Next.js application.
 │       ├── types.ts
 │       └── utils.ts
 └── tsconfig.json
-```
+`\````
 
 ---
 
