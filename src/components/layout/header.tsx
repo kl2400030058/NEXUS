@@ -12,6 +12,9 @@ export function SiteHeader() {
           <Logo />
           <nav className="hidden gap-6 md:flex">
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
+                <Link href="/dashboard">Dashboard</Link>
+             </Button>
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
                 <Link href="/#sessions">Sessions</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
