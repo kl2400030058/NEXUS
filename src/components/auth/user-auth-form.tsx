@@ -56,7 +56,7 @@ export function UserAuthForm({ className, authType, ...props }: UserAuthFormProp
       } else if ('name' in values) {
         await signup(values.name, values.email, values.password);
       }
-      router.push("/profile");
+      router.push("/dashboard");
     } catch (error) {
       console.error("Authentication failed", error);
       // Here you would use a toast to show the error
@@ -69,7 +69,7 @@ export function UserAuthForm({ className, authType, ...props }: UserAuthFormProp
     setIsLoading(true);
     try {
         await googleLogin();
-        router.push("/profile");
+        router.push("/dashboard");
     } catch (error) {
         console.error("Google authentication failed", error);
     } finally {
