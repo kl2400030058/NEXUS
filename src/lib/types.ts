@@ -36,6 +36,11 @@ export type UserProfile = {
     sessionReminders: boolean;
     communityNewsletters: boolean;
   };
+  gamification: {
+    points: number;
+    badges: string[];
+    achievements: string[];
+  };
 };
 
 export type ChatMessage = {

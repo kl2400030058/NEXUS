@@ -410,6 +410,11 @@ const userProfiles: UserProfile[] = [
         notificationPreferences: {
             sessionReminders: true,
             communityNewsletters: false,
+        },
+        gamification: {
+            points: 1250,
+            badges: ["Pioneer", "Early Bird"],
+            achievements: []
         }
     }
 ]

@@ -1,9 +1,10 @@
 import { getSpeakers } from "@/lib/data";
 import { placeholderImages } from '@/lib/placeholder-images.json';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default async function SpeakersPage() {
   const speakers = await getSpeakers();
@@ -37,11 +38,18 @@ export default async function SpeakersPage() {
               </div>
               <CardHeader className="pt-6">
                 <CardTitle className="text-2xl">{speaker.name}</CardTitle>
-                <CardDescription className="text-primary font-medium">{speaker.email}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{speaker.bio}</p>
               </CardContent>
+               <CardFooter className="w-full">
+                <Button asChild className="w-full" variant="outline">
+                    <Link href={`mailto:${speaker.email}`}>
+                        <Mail className="mr-2 h-4 w-4"/>
+                        Contact
+                    </Link>
+                </Button>
+              </CardFooter>
             </Card>
           );
         })}
