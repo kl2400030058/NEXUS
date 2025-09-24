@@ -1,19 +1,23 @@
+
 "use client"
 
 import { useEffect, useState } from 'react';
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { getSessions } from "@/lib/data"
 import type { Session, Speaker } from "@/lib/types"
 import { useAuth } from "@/lib/auth"
 import { Skeleton } from '@/components/ui/skeleton';
-import { Presentation, Users, CalendarCheck, BarChart2 } from 'lucide-react';
+import { Presentation, Users, CalendarCheck, BarChart2, PieChart as PieChartIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type ChartData = {
   name: string;
   total: number;
 }
+
+const PIE_CHART_COLORS = ["hsl(var(--chart-1))", "hsl(var(--chart-2))", "hsl(var(--chart-3))", "hsl(var(--chart-4))", "hsl(var(--chart-5))"];
+
 
 export default function DashboardPage() {
   const { user, loading: authLoading } = useAuth();
@@ -87,31 +91,70 @@ export default function DashboardPage() {
         </Link>
       </div>
 
-       <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BarChart2 className="h-5 w-5" />
-              Session Distribution
-            </CardTitle>
-            <CardDescription>A breakdown of sessions by category.</CardDescription>
-          </CardHeader>
-          <CardContent>
-             <ResponsiveContainer width="100%" height={350}>
-                <BarChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} />
-                    <YAxis stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} allowDecimals={false} />
-                    <Tooltip
-                        contentStyle={{ 
-                            backgroundColor: "hsl(var(--background))",
-                            borderColor: "hsl(var(--border))"
-                        }}
-                    />
-                    <Bar dataKey="total" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-                </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+       <div className="grid gap-8 lg:grid-cols-2">
+        <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <BarChart2 className="h-5 w-5" />
+                Session Distribution (Bar)
+              </CardTitle>
+              <CardDescription>A breakdown of sessions by category.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={350}>
+                  <BarChart data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} />
+                      <YAxis stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} allowDecimals={false} />
+                      <Tooltip
+                          contentStyle={{ 
+                              backgroundColor: "hsl(var(--background))",
+                              borderColor: "hsl(var(--border))"
+                          }}
+                      />
+                      <Bar dataKey="total" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <PieChartIcon className="h-5 w-5" />
+                Session Distribution (Pie)
+              </CardTitle>
+              <CardDescription>A proportional view of session categories.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <ResponsiveContainer width="100%" height={350}>
+                    <PieChart>
+                        <Tooltip
+                            contentStyle={{ 
+                                backgroundColor: "hsl(var(--background))",
+                                borderColor: "hsl(var(--border))"
+                            }}
+                        />
+                        <Pie
+                            data={chartData}
+                            dataKey="total"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={120}
+                            fill="#8884d8"
+                            label={(props) => `${props.name} (${props.value})`}
+                        >
+                            {chartData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={PIE_CHART_COLORS[index % PIE_CHART_COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Legend />
+                    </PieChart>
+                </ResponsiveContainer>
+            </CardContent>
+          </Card>
+       </div>
+
     </div>
   )
 }
@@ -153,15 +196,29 @@ function DashboardSkeleton() {
           </CardContent>
         </Card>
       </div>
-      <Card>
-        <CardHeader>
-          <Skeleton className="h-7 w-1/4" />
-          <Skeleton className="h-4 w-2/5 mt-2" />
-        </CardHeader>
-        <CardContent>
-          <Skeleton className="h-[350px] w-full" />
-        </CardContent>
-      </Card>
+      <div className="grid gap-8 lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <Skeleton className="h-7 w-1/4" />
+            <Skeleton className="h-4 w-2/5 mt-2" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton className="h-[350px] w-full" />
+          </CardContent>
+        </Card>
+         <Card>
+          <CardHeader>
+            <Skeleton className="h-7 w-1/4" />
+            <Skeleton className="h-4 w-2/5 mt-2" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton className="h-[350px] w-full" />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }
+
+
+    
