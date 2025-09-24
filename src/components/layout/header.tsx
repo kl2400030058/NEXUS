@@ -18,10 +18,10 @@ export function SiteHeader() {
                 <Link href="/#sessions">Sessions</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
-                <Link href="/">Speakers</Link>
+                <Link href="/speakers">Speakers</Link>
              </Button>
               <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
-                <Link href="#">About</Link>
+                <Link href="/about">About</Link>
              </Button>
           </nav>
         </div>

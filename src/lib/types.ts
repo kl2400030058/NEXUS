@@ -3,6 +3,7 @@ export type Speaker = {
   id: string;
   name: string;
   bio: string;
+  email: string;
   avatarImageId: string;
 };
 

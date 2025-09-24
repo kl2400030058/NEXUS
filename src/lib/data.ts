@@ -4,18 +4,21 @@ const speakers: Speaker[] = [
   {
     id: 'speaker-1',
     name: 'Dr. Evelyn Reed',
+    email: 'evelyn.reed@example.com',
     bio: 'Dr. Evelyn Reed is a principal software engineer at Google, specializing in machine learning infrastructure and large-scale data processing. She is a core contributor to several open-source AI projects.',
     avatarImageId: 'speaker-1',
   },
   {
     id: 'speaker-2',
     name: 'Marcus Chen',
+    email: 'marcus.chen@example.com',
     bio: 'Marcus Chen is a UX design lead with over 15 years of experience building intuitive and beautiful user interfaces. He is passionate about design systems and currently focuses on mobile app development.',
     avatarImageId: 'speaker-2',
   },
   {
     id: 'speaker-3',
     name: 'Jasmine Patel',
+    email: 'jasmine.patel@example.com',
     bio: 'Jasmine Patel is a cloud architect and a Google Developer Expert in Cloud. She helps companies migrate to and optimize their cloud infrastructure, with a focus on serverless and containerization technologies.',
     avatarImageId: 'speaker-3',
   },
@@ -75,6 +78,15 @@ const userProfiles: UserProfile[] = [
 ]
 
 // Simulate async data fetching
+export const getSpeakers = async (): Promise<Speaker[]> => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(speakers);
+        }, 400);
+    });
+}
+
+
 export const getSessions = async (): Promise<(Session & { speaker: Speaker })[]> => {
   return new Promise(resolve => {
     setTimeout(() => {
