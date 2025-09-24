@@ -4,9 +4,57 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Atom, Milestone, Users } from "lucide-react";
+import { Atom, Milestone, Users, Lightbulb, Code, Search, Network, Award, TrendingUp, Handshake, BrainCircuit, HeartHand } from "lucide-react";
 
 export default function AboutPage() {
+  const features = [
+    {
+      icon: Atom,
+      title: "Our Mission",
+      description: "To provide a seamless platform for discovering, booking, and participating in high-quality tech sessions and workshops."
+    },
+    {
+      icon: Users,
+      title: "Our Community",
+      description: "Built for and by the Google Developer Groups community, fostering a space for learning, sharing, and growth."
+    },
+    {
+      icon: Milestone,
+      title: "Our Vision",
+      description: "To be the central hub for developer events, connecting talent with opportunity and knowledge with curiosity, all over the world."
+    },
+    {
+      icon: Lightbulb,
+      title: "Fostering Innovation",
+      description: "We encourage creative thinking and problem-solving through hackathons, contests, and collaborative projects."
+    },
+    {
+      icon: Code,
+      title: "Hands-On Learning",
+      description: "Dive deep into the latest technologies with expert-led workshops and interactive codelabs designed to build practical skills."
+    },
+     {
+      icon: TrendingUp,
+      title: "Career Growth",
+      description: "Nexus is your partner in professional development, offering opportunities to learn new skills, network, and advance your career."
+    },
+    {
+      icon: Network,
+      title: "Global Network",
+      description: "Connect with a diverse, global community of developers, designers, and tech enthusiasts from various GDG chapters."
+    },
+    {
+      icon: Award,
+      title: "Expert Speakers",
+      description: "Learn from the best. Our sessions are led by industry experts, Google Developer Experts, and passionate community leaders."
+    },
+    {
+      icon: Handshake,
+      title: "Community Driven",
+      description: "Our platform is shaped by community feedback and driven by volunteers passionate about sharing knowledge."
+    }
+  ];
+
   const faqs = [
     {
       question: "What is Project Nexus?",
@@ -28,6 +76,22 @@ export default function AboutPage() {
         question: "How can I become a speaker?",
         answer: "We are always looking for passionate speakers! Please reach out to your local GDG chapter organizers with your talk proposal. We'd love to hear from you.",
     },
+    {
+      question: "What happens if a session is full?",
+      answer: "If a session is fully booked, you may see an option to join a waitlist. If a spot opens up, you'll be notified via email. We encourage you to still check the session page closer to the date, as spots often become available."
+    },
+    {
+      question: "How can I provide feedback on a session?",
+      answer: "After a session concludes, you will receive an email with a link to a feedback form. You can also find a feedback section in your user profile for past events. Your feedback is crucial for our improvement!"
+    },
+    {
+      question: "Are the sessions recorded?",
+      answer: "It depends on the session and the speaker's preference. If a session is recorded, the video link will typically be added to the session's 'Resources' section on its detail page after the event."
+    },
+    {
+      question: "Who can I contact for support?",
+      answer: "For any issues or questions, please use the form on our 'Contact' page. Our support team will get back to you as soon as possible. For specific event-related questions, you can also reach out to your local GDG organizers."
+    }
   ];
 
   return (
@@ -41,22 +105,16 @@ export default function AboutPage() {
         </p>
       </div>
       
-      <div className="grid md:grid-cols-3 gap-12 mb-20 text-center">
-          <div className="flex flex-col items-center">
-              <Atom className="h-12 w-12 text-primary mb-4"/>
-              <h3 className="text-xl font-bold">Our Mission</h3>
-              <p className="text-muted-foreground mt-2">To provide a seamless platform for discovering, booking, and participating in high-quality tech sessions and workshops.</p>
-          </div>
-          <div className="flex flex-col items-center">
-              <Users className="h-12 w-12 text-primary mb-4"/>
-              <h3 className="text-xl font-bold">Our Community</h3>
-              <p className="text-muted-foreground mt-2">Built for and by the Google Developer Groups community, fostering a space for learning, sharing, and growth.</p>
-          </div>
-          <div className="flex flex-col items-center">
-              <Milestone className="h-12 w-12 text-primary mb-4"/>
-              <h3 className="text-xl font-bold">Our Vision</h3>
-              <p className="text-muted-foreground mt-2">To be the central hub for developer events, connecting talent with opportunity and knowledge with curiosity, all over the world.</p>
-          </div>
+      <div className="grid md:grid-cols-3 gap-10 mb-20">
+          {features.map((feature, index) => (
+             <div key={index} className="flex flex-col items-center text-center p-4">
+                <div className="bg-primary/10 p-4 rounded-full mb-4">
+                    <feature.icon className="h-10 w-10 text-primary"/>
+                </div>
+                <h3 className="text-xl font-bold">{feature.title}</h3>
+                <p className="text-muted-foreground mt-2">{feature.description}</p>
+            </div>
+          ))}
       </div>
 
       <div className="max-w-4xl mx-auto">
@@ -66,7 +124,7 @@ export default function AboutPage() {
         <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-lg font-medium">{faq.question}</AccordionTrigger>
+                <AccordionTrigger className="text-lg font-medium text-left">{faq.question}</AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground">
                   {faq.answer}
                 </AccordionContent>
