@@ -18,6 +18,7 @@ export type Session = {
   venue: string;
   coverImageId: string;
   category: 'Workshop' | 'Talk' | 'Codelab';
+  resources?: { name: string; url: string }[];
 };
 
 export type UserProfile = {

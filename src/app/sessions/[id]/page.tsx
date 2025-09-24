@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
 import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useAuth } from '@/lib/auth';
 import { getSessionById } from '@/lib/data';
 import type { Session, Speaker } from '@/lib/types';
@@ -12,9 +14,9 @@ import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { CalendarDays, Clock, MapPin, Ticket, UserCheck, Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { CalendarDays, Clock, MapPin, Ticket, UserCheck, Loader2, CheckCircle, XCircle, Download, Link as LinkIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function SessionDetailPage() {
@@ -105,6 +107,32 @@ export default function SessionDetailPage() {
         <div className="lg:col-span-2 space-y-6">
             <h2 className="text-2xl font-bold">About this session</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">{session.longDescription}</p>
+            
+            {session.resources && session.resources.length > 0 && (
+                 <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                           <Download className="h-5 w-5" />
+                           Resources
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-2">
+                            {session.resources.map((resource, index) => (
+                                <li key={index}>
+                                    <Button variant="link" asChild className="p-0 h-auto">
+                                        <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-base">
+                                            <LinkIcon className="h-4 w-4" />
+                                            {resource.name}
+                                        </Link>
+                                    </Button>
+                                </li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                </Card>
+            )}
+
         </div>
         <div className="space-y-6">
             <Card>

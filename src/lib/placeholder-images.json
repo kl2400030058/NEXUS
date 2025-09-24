@@ -25,6 +25,24 @@
       "imageHint": "conference hall"
     },
     {
+      "id": "session-5",
+      "description": "A smartphone screen showing a colorful Flutter application UI.",
+      "imageUrl": "https://images.unsplash.com/photo-1633533439113-7881593856d2?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbHV0dGVyJTIwYXBwfGVufDB8fHx8MTc1ODcyNzk5N3ww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "flutter app"
+    },
+    {
+      "id": "session-6",
+      "description": "A person wearing a hoodie looking at a screen with code, representing web security.",
+      "imageUrl": "https://images.unsplash.com/photo-1599658880115-a22a45d045c7?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWIlMjBzZWN1cml0eXxlbnwwfHx8fDE3NTg3MjgwODZ8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "web security"
+    },
+    {
+      "id": "session-7",
+      "description": "A complex branching diagram representing git version control.",
+      "imageUrl": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnaXQlMjB2ZXJzaW9uJTIwY29udHJvbHxlbnwwfHx8fDE3NTg3MjgyMDV8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "git version"
+    },
+    {
       "id": "speaker-1",
       "description": "Headshot of a smiling woman with dark hair, professional attire.",
       "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODY0MDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -41,6 +59,18 @@
       "description": "Headshot of a person with short hair, looking thoughtfully at the camera.",
       "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg2OTE2MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "speaker-4",
+      "description": "Portrait of a confident man with short hair in a casual shirt.",
+      "imageUrl": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg3MjgyOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "speaker-5",
+      "description": "Portrait of a woman with curly hair smiling warmly.",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODcyODM1OXww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "woman portrait"
     },
     {
       "id": "user-avatar-1",

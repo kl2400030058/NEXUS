@@ -1,3 +1,4 @@
+
 import type { Speaker, Session, UserProfile } from './types';
 
 const speakers: Speaker[] = [
@@ -22,6 +23,20 @@ const speakers: Speaker[] = [
     bio: 'Jasmine Patel is a cloud architect and a Google Developer Expert in Cloud. She helps companies migrate to and optimize their cloud infrastructure, with a focus on serverless and containerization technologies.',
     avatarImageId: 'speaker-3',
   },
+  {
+    id: 'speaker-4',
+    name: 'Ben Carter',
+    email: 'ben.carter@example.com',
+    bio: 'Ben Carter is a Flutter and Dart GDE who loves creating beautiful and performant cross-platform applications. He is a frequent speaker at tech conferences and a passionate open-source advocate.',
+    avatarImageId: 'speaker-4',
+  },
+  {
+    id: 'speaker-5',
+    name: 'Olivia Martinez',
+    email: 'olivia.martinez@example.com',
+    bio: 'Olivia Martinez is a cybersecurity expert and ethical hacker. She specializes in application security and helps developers build more secure software through training and workshops.',
+    avatarImageId: 'speaker-5',
+  }
 ];
 
 const sessions: Session[] = [
@@ -36,6 +51,10 @@ const sessions: Session[] = [
     venue: 'Main Auditorium',
     coverImageId: 'session-1',
     category: 'Talk',
+    resources: [
+        { name: 'Presentation Slides', url: '#' },
+        { name: 'Gemini API Docs', url: '#' }
+    ]
   },
   {
     id: 'session-2',
@@ -48,6 +67,9 @@ const sessions: Session[] = [
     venue: 'Workshop Room A',
     coverImageId: 'session-2',
     category: 'Workshop',
+    resources: [
+        { name: 'Workshop Materials (GitHub)', url: '#' },
+    ]
   },
   {
     id: 'session-3',
@@ -60,7 +82,54 @@ const sessions: Session[] = [
     venue: 'Codelab Zone',
     coverImageId: 'session-3',
     category: 'Codelab',
+    resources: [
+       { name: 'Codelab Instructions', url: '#' },
+       { name: 'Starter Project (GitHub)', url: '#' }
+    ]
   },
+   {
+    id: 'session-4',
+    title: 'Cross-Platform with Flutter',
+    description: 'Discover how to build beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
+    longDescription: 'This talk will introduce you to the Flutter framework, covering its core concepts, widget-based architecture, and hot-reload capabilities. See how quickly you can build a polished UI that runs on both iOS and Android.',
+    speakerId: 'speaker-4',
+    date: '2024-08-16',
+    time: '2:00 PM - 3:00 PM',
+    venue: 'Main Auditorium',
+    coverImageId: 'session-5',
+    category: 'Talk',
+    resources: []
+  },
+  {
+    id: 'session-5',
+    title: 'Introduction to Web Security',
+    description: 'A beginner-friendly workshop on common web vulnerabilities and how to prevent them.',
+    longDescription: 'In this interactive workshop, you\'ll learn about common security threats like XSS, CSRF, and SQL injection. We\'ll demonstrate how these attacks work and, more importantly, how to write code that defends against them.',
+    speakerId: 'speaker-5',
+    date: '2024-08-17',
+    time: '10:00 AM - 12:00 PM',
+    venue: 'Workshop Room B',
+    coverImageId: 'session-6',
+    category: 'Workshop',
+     resources: [
+       { name: 'OWASP Top 10', url: '#' },
+    ]
+  },
+   {
+    id: 'session-6',
+    title: 'Advanced Git Techniques',
+    description: 'Master your version control workflow with advanced Git commands and strategies.',
+    longDescription: 'Move beyond `git add`, `commit`, and `push`. This session explores powerful features like interactive rebase, submodules, reflog, and bisect. Learn how to maintain a clean and efficient repository history.',
+    speakerId: 'speaker-1',
+    date: '2024-08-17',
+    time: '1:00 PM - 2:00 PM',
+    venue: 'Room 101',
+    coverImageId: 'session-7',
+    category: 'Talk',
+    resources: [
+       { name: 'Presentation Slides', url: '#' },
+    ]
+  }
 ];
 
 const userProfiles: UserProfile[] = [
