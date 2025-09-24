@@ -129,6 +129,51 @@ const sessions: Session[] = [
     resources: [
        { name: 'Presentation Slides', url: '#' },
     ]
+  },
+  {
+    id: 'session-7',
+    title: 'Building Scalable APIs with Node.js',
+    description: 'Learn to build and deploy high-performance, scalable RESTful APIs using Node.js, Express, and best practices.',
+    longDescription: 'This workshop covers the essentials of backend development with Node.js. Participants will learn how to set up an Express server, design RESTful routes, connect to a database, and implement middleware for authentication and error handling. We will also cover deployment strategies to ensure your API can handle production traffic. This is a hands-on session ideal for frontend developers looking to go full-stack or anyone new to backend development.',
+    speakerId: 'speaker-3',
+    date: '2024-08-18',
+    time: '10:00 AM - 1:00 PM',
+    venue: 'Workshop Room A',
+    coverImageId: 'session-8',
+    category: 'Workshop',
+    resources: [
+       { name: 'API Starter Kit (GitHub)', url: '#' },
+    ]
+  },
+  {
+    id: 'session-8',
+    title: 'Your First Progressive Web App (PWA)',
+    description: 'A hands-on codelab that teaches you how to turn your web app into an installable, offline-capable PWA.',
+    longDescription: 'Progressive Web Apps (PWAs) provide a native-app-like experience on the web. In this codelab, you will learn how to implement the core components of a PWA, including the Web App Manifest to make your app installable and a Service Worker to enable offline functionality. You will take a simple web page and progressively enhance it into a reliable and engaging PWA. Basic HTML and JavaScript knowledge is required.',
+    speakerId: 'speaker-2',
+    date: '2024-08-18',
+    time: '2:00 PM - 4:00 PM',
+    venue: 'Codelab Zone',
+    coverImageId: 'session-9',
+    category: 'Codelab',
+    resources: [
+       { name: 'PWA Codelab Guide', url: '#' },
+    ]
+  },
+  {
+    id: 'session-9',
+    title: 'Angular Signals Deep Dive',
+    description: 'A codelab exploring the new reactive primitive in Angular for fine-grained change detection.',
+    longDescription: 'This codelab is for experienced Angular developers who want to master the new Signals feature. We will dive into creating and using signals, understanding computed signals and effects, and how they integrate with the existing Angular change detection mechanism. You will refactor a traditional component to use Signals and see the performance benefits firsthand. A solid understanding of Angular is a prerequisite for this session.',
+    speakerId: 'speaker-5',
+    date: '2024-08-19',
+    time: '11:00 AM - 1:00 PM',
+    venue: 'Codelab Zone',
+    coverImageId: 'session-10',
+    category: 'Codelab',
+    resources: [
+        { name: 'Angular Signals Docs', url: '#' },
+    ]
   }
 ];
 
