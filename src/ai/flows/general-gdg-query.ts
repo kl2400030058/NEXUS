@@ -19,6 +19,7 @@ export type GeneralGDGQueryInput = z.infer<typeof GeneralGDGQueryInputSchema>;
 
 const GeneralGDGQueryOutputSchema = z.object({
   answer: z.string().describe('The answer to the question.'),
+  suggestions: z.array(z.string()).describe('Three suggested follow-up questions the user could ask.'),
 });
 export type GeneralGDGQueryOutput = z.infer<typeof GeneralGDGQueryOutputSchema>;
 
@@ -30,11 +31,11 @@ const prompt = ai.definePrompt({
   name: 'generalGDGQueryPrompt',
   input: {schema: GeneralGDGQueryInputSchema},
   output: {schema: GeneralGDGQueryOutputSchema},
-  prompt: `You are a helpful AI assistant providing information about Google Developer Groups (GDG).
+  prompt: `You are a helpful AI assistant providing information about Google Developer Groups (GDG) for the Project Nexus event platform.
 
-  Answer the following question about GDG, upcoming events, or community initiatives:
+  Answer the following question about GDG, upcoming events, or community initiatives. After answering, provide three concise, relevant follow-up questions a user might ask next.
 
-  {{query}}`,
+  Question: {{query}}`,
 });
 
 const generalGDGQueryFlow = ai.defineFlow(

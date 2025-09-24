@@ -12,7 +12,7 @@ export default async function WorkshopsPage() {
                 Workshops
                 </h1>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                Get hands-on experience and dive deep into the latest technologies with our expert-led workshops.
+                Get hands-on experience and dive deep into the latest technologies with our expert-led workshops. These interactive sessions are designed to help you learn by doing.
                 </p>
             </div>
             

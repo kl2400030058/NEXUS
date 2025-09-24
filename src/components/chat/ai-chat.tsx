@@ -11,8 +11,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { MessageSquare, Send, Loader2, Sparkles } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Send, Loader2, Sparkles, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { generalGDGQuery } from '@/ai/flows/general-gdg-query';
 import type { ChatMessage } from '@/lib/types';
@@ -24,17 +24,25 @@ export function AIChat() {
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  const handleSend = async () => {
-    if (input.trim() === '' || isLoading) return;
+  const handleSend = async (query?: string) => {
+    const currentQuery = query || input;
+    if (currentQuery.trim() === '' || isLoading) return;
 
-    const userMessage: ChatMessage = { id: Date.now().toString(), role: 'user', content: input };
+    const userMessage: ChatMessage = { id: Date.now().toString(), role: 'user', content: currentQuery };
     setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    if (!query) {
+      setInput('');
+    }
     setIsLoading(true);
 
     try {
-      const response = await generalGDGQuery({ query: input });
-      const assistantMessage: ChatMessage = { id: (Date.now() + 1).toString(), role: 'assistant', content: response.answer };
+      const response = await generalGDGQuery({ query: currentQuery });
+      const assistantMessage: ChatMessage = { 
+        id: (Date.now() + 1).toString(), 
+        role: 'assistant', 
+        content: response.answer,
+        suggestions: response.suggestions,
+      };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('AI query failed:', error);
@@ -78,30 +86,41 @@ export function AIChat() {
             </SheetTitle>
           </SheetHeader>
           <ScrollArea className="flex-1 px-6" ref={scrollAreaRef}>
-            <div className="space-y-4 py-4">
-              {messages.map((message, index) => (
-                <div
-                  key={message.id}
-                  className={cn(
-                    'flex items-end gap-2',
-                    message.role === 'user' ? 'justify-end' : 'justify-start'
-                  )}
-                >
-                  {message.role === 'assistant' && (
-                    <Avatar className="h-8 w-8">
-                       <AvatarFallback><Sparkles className="h-4 w-4" /></AvatarFallback>
-                    </Avatar>
-                  )}
-                  <div
+            <div className="space-y-6 py-4">
+              {messages.map((message) => (
+                <div key={message.id}>
+                    <div
                     className={cn(
-                      'max-w-[75%] rounded-lg px-3 py-2 text-sm',
-                      message.role === 'user'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted'
+                        'flex items-end gap-2',
+                        message.role === 'user' ? 'justify-end' : 'justify-start'
                     )}
-                  >
-                    {message.content}
-                  </div>
+                    >
+                    {message.role === 'assistant' && (
+                        <Avatar className="h-8 w-8">
+                        <AvatarFallback><Sparkles className="h-4 w-4" /></AvatarFallback>
+                        </Avatar>
+                    )}
+                    <div
+                        className={cn(
+                        'max-w-[85%] rounded-lg px-3 py-2 text-sm whitespace-pre-wrap',
+                        message.role === 'user'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted'
+                        )}
+                    >
+                        {message.content}
+                    </div>
+                    </div>
+                     {message.role === 'assistant' && message.suggestions && (
+                        <div className="mt-3 flex flex-wrap gap-2 justify-start pl-10">
+                            {message.suggestions.map((suggestion, i) => (
+                                <Button key={i} size="sm" variant="outline" className="text-xs h-auto py-1 px-2" onClick={() => handleSend(suggestion)}>
+                                    {suggestion}
+                                    <ChevronRight className="h-3 w-3 ml-1"/>
+                                </Button>
+                            ))}
+                        </div>
+                    )}
                 </div>
               ))}
                {isLoading && (
@@ -126,7 +145,7 @@ export function AIChat() {
                 onKeyDown={handleKeyDown}
                 disabled={isLoading}
               />
-              <Button type="submit" onClick={handleSend} disabled={isLoading || !input.trim()}>
+              <Button type="submit" onClick={() => handleSend()} disabled={isLoading || !input.trim()}>
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Send</span>
               </Button>

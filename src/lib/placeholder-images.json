@@ -91,6 +91,12 @@
       "imageHint": "sustainable tech"
     },
     {
+      "id": "session-16",
+      "description": "An abstract design representing algorithms and data structures.",
+      "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbGdvcml0aG0lMjBjb250ZXN0fGVufDB8fHx8MTc2MDMzMjc5Nnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "algorithm contest"
+    },
+    {
       "id": "speaker-1",
       "description": "Headshot of a smiling woman with dark hair, professional attire.",
       "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODY0MDczOHww&ixlib=rb-4.1.0&q=80&w=1080",

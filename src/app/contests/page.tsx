@@ -12,7 +12,7 @@ export default async function ContestsPage() {
                 Coding Contests
                 </h1>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                Test your skills, compete with peers, and win exciting prizes.
+                Test your skills, compete with peers, and win exciting prizes in our coding challenges. Sharpen your problem-solving abilities and see how you stack up against the community.
                 </p>
             </div>
             

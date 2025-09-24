@@ -253,6 +253,20 @@ const sessions: Session[] = [
     category: 'Hackathon',
     resources: [],
     tags: ['Social Good', 'Hackathon']
+  },
+  {
+    id: 'session-15',
+    title: 'AlgoRhythm Coding Contest',
+    description: 'A competitive programming contest to test your algorithmic skills and problem-solving speed.',
+    longDescription: 'Get ready for AlgoRhythm, our flagship coding contest. You\'ll face a series of algorithmic challenges of varying difficulty. Compete against the clock and other developers to climb the leaderboard. This is a great opportunity to practice for technical interviews and win exciting prizes. The contest will be hosted on an online judge platform.',
+    speakerId: 'speaker-1',
+    date: '2024-09-05',
+    time: '6:00 PM - 9:00 PM',
+    venue: 'Online',
+    coverImageId: 'session-16',
+    category: 'Contest',
+    resources: [],
+    tags: ['Algorithms', 'Contest']
   }
 ];
 
