@@ -27,7 +27,7 @@ export function SiteHeader() {
                 <Link href="/workshops">Workshops</Link>
              </Button>
               <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
-                <Link href="/about">About & Contact</Link>
+                <Link href="/about">About</Link>
              </Button>
           </nav>
         </div>
