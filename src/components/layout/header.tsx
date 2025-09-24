@@ -11,30 +11,32 @@ export function SiteHeader() {
         <div className="flex gap-6 md:gap-8">
           <Logo />
           <nav className="hidden gap-4 md:flex">
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/dashboard">Dashboard</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/hackathons">Hackathons</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/contests">Contests</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/workshops">Workshops</Link>
              </Button>
-              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/about">About</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/contact">Contact</Link>
              </Button>
           </nav>
         </div>
 
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <ThemeToggle />
-          <UserAvatar />
+          <nav className="flex items-center gap-2">
+            <ThemeToggle />
+            <UserAvatar />
+          </nav>
         </div>
       </div>
     </header>

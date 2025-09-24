@@ -3,180 +3,135 @@
 ## 1. Title Page & Abstract
 **Title:** Project Nexus  
 **Abstract:**  
-Project Nexus is an intelligent, modular system designed to integrate multiple services and data sources into a unified platform. The project aims to simplify workflows, improve efficiency, and provide seamless interaction between users and system modules. Its architecture emphasizes scalability, reliability, and security to ensure adaptability for future enhancements.
+Project Nexus is an intelligent, modular platform for Google Developer Groups (GDG) designed to integrate event management, community engagement, and analytics into a unified, user-friendly system. The project aims to simplify workflows, improve efficiency, and provide a seamless interaction between users and a rich ecosystem of tech events. Its architecture emphasizes scalability, a modern user experience, and adaptability for future enhancements.
 
 ---
 
 ## 2. Introduction
 ### Problem Statement
-Modern enterprises rely on multiple disjointed applications, which often leads to inefficiency, redundancy, and data silos.
+GDG communities often rely on multiple disjointed platforms for event announcements, bookings, and member communication, leading to inefficiency, data silos, and a fragmented user experience.
 
 ### Objectives
-- Provide a centralized system for managing multiple modules.
-- Ensure secure, fast, and scalable operations.
-- Simplify data flow and integration.
-- Deliver a user-friendly interface for diverse stakeholders.
+- To provide a centralized hub for managing and discovering all GDG-related events, including workshops, hackathons, and contests.
+- To ensure a secure, fast, and scalable platform built on modern web technologies.
+- To foster community engagement through features like user profiles, session bookings, and AI-powered assistance.
+- To deliver an intuitive and visually appealing user interface for all stakeholders.
 
 ### Scope
-Project Nexus covers authentication, data integration, analytics, and user interaction. It can be adapted to finance, healthcare, education, and e-commerce.
+Project Nexus focuses on user authentication, event discovery and booking, user profile management, and an admin dashboard for analytics. It is tailored for the GDG community but can be adapted for other tech event platforms.
 
 ---
 
 ## 3. System Architecture
 ### Layers
-1. **Presentation Layer:** User interface (web/mobile apps).
-2. **Application Layer:** Business logic and service orchestration.
-3. **Data Layer:** Centralized database and data access APIs.
-4. **Integration Layer:** External APIs and third-party service connectors.
+1.  **Presentation Layer:** A responsive user interface built with Next.js (React) and styled with Tailwind CSS, featuring components from ShadCN UI.
+2.  **Application Layer:** Handles business logic and user interactions within the Next.js framework. It uses Server Actions and client-side components for a dynamic experience. Genkit is used for AI-powered features.
+3.  **Data Layer:** Mock data is provided via TypeScript files, simulating a database for sessions, speakers, and user profiles. Firebase is integrated for authentication.
+4.  **AI Layer:** Genkit is used to power AI features, such as the Nexus AI Assistant, providing users with intelligent query responses and suggestions.
 
 ### Architecture Diagram (Textual Form)
-+-----------------------+
-|   Presentation Layer  |
-|  (Web, Mobile, UI)   |
-+----------+------------+
-           |
-           v
-+-----------------------+
-|   Application Layer   |
-| (Business Logic, API) |
-+----------+------------+
-           |
-           v
-+-----------------------+
-|     Data Layer        |
-| (Database, Storage)   |
-+----------+------------+
-           |
-           v
-+-----------------------+
-| Integration Layer     |
-| (3rd Party APIs)      |
-+-----------------------+
++---------------------------------+
+|        Presentation Layer       |
+| (Next.js, React, ShadCN, ...)   |
++----------------+----------------+
+                 |
+                 v
++---------------------------------+
+|        Application Layer        |
+| (Next.js App Router, Server     |
+|  Components, Client Components) |
++----------------+----------------+
+                 |
+                 v
++----------------+----------------+
+|           Data Layer            |
+|  (Mock Data, Firebase Auth)     |
++----------------+----------------+
+                 |
+                 v
++---------------------------------+
+|            AI Layer             |
+|   (Genkit, Google AI)           |
++---------------------------------+
 
 ---
 
 ## 4. Working Algorithm / Workflow
-### Step-by-Step
-1. User sends a request via the UI.
-2. Application Layer validates authentication.
-3. Business logic processes the request.
-4. Data is fetched/updated in the database.
-5. External APIs are called if required.
-6. Response returned to UI.
+### Step-by-Step User Journey
+1.  A user lands on the homepage, which features a prominent hero section and a search bar.
+2.  The user can browse all upcoming events or use the search and filter controls to find sessions by topic (e.g., "Gen AI," "Web Dev").
+3.  The user can also navigate to dedicated pages for "Hackathons," "Contests," or "Workshops" via the main header.
+4.  Clicking on an event card takes the user to the session detail page, which provides a long description, speaker information, and event logistics.
+5.  To book a session, the user must log in. The platform supports email/password and Google social login.
+6.  Once logged in, the user can book a session with a single click. Booked sessions appear on their profile page.
+7.  The user can visit their profile page to update personal information, view booked sessions, and manage notification preferences.
+8.  At any point, the user can interact with the "Nexus AI Assistant" chatbot for help or to ask questions about GDG events.
 
-### Pseudocode
+### Pseudocode for Session Booking
 START
-  INPUT user_request
-  VALIDATE authentication
+  INPUT session_id, user_id
+  VALIDATE user_is_logged_in
   IF valid THEN
-      PROCESS business_logic
-      ACCESS database
-      IF external_data_needed THEN
-          CALL external_API
+      FETCH user_profile
+      CHECK if session_id is in user_profile.bookedSessions
+      IF already_booked THEN
+          REMOVE session_id from user_profile.bookedSessions
+          RETURN "Booking cancelled"
+      ELSE
+          ADD session_id to user_profile.bookedSessions
+          RETURN "Booking confirmed"
       ENDIF
-      RETURN response_to_UI
   ELSE
-      RETURN error_message
+      RETURN "Login required"
   ENDIF
 END
 
 ---
 
 ## 5. Module Descriptions
-- **Authentication Module:** Handles login, registration, and role-based access.
-- **Data Management Module:** CRUD operations on core datasets.
-- **Analytics Module:** Insights, reports, and visualization.
-- **Integration Module:** Connects external APIs/services.
-- **Notification Module:** Sends system alerts, emails, or push notifications.
+-   **Authentication Module:** Handles login, registration, and social sign-in (Google). Manages user sessions.
+-   **Event Management Module:** Displays sessions, provides search and filtering, and includes dedicated pages for different event categories.
+-   **User Profile Module:** Allows users to view and update their profile, see booked sessions, and manage notification preferences. Includes gamification elements like points and badges.
+-   **Dashboard Module:** Provides users with an overview of platform activity, including total sessions, speaker counts, and a chart visualizing session distribution by category.
+-   **AI Assistant Module:** A chatbot powered by Genkit that answers user queries about GDG and suggests follow-up questions.
+-   **Admin Module:** A role-protected section with a dedicated dashboard and sidebar for platform management (currently in foundational stage).
 
 ---
 
-## 6. Data Flow / Sequence Diagrams
-### Data Flow
-User → UI → Application Layer → Database → Application Layer → UI → User
-
-### Login Sequence
-1. User enters credentials.
-2. UI sends request to Application Layer.
-3. Application Layer queries Database.
-4. Database verifies credentials.
-5. Application Layer responds with result.
-6. UI grants/denies access.
+## 6. Technology Stack & Tools
+-   **Frontend:** Next.js (App Router), React, TypeScript
+-   **Styling:** Tailwind CSS, ShadCN UI components
+-   **Analytics/Charts:** Recharts
+-   **Authentication:** Firebase Authentication (simulated via `useAuth` hook)
+-   **AI/Generative:** Genkit, Google AI
+-   **Icons:** Lucide React
 
 ---
 
-## 7. Technology Stack & Tools
-- **Frontend:** React.js / Flutter
-- **Backend:** Node.js / Django
-- **Database:** PostgreSQL / MongoDB
-- **Integration:** REST APIs, GraphQL
-- **Deployment:** Docker, Kubernetes, AWS/Azure
-- **Security:** JWT, OAuth 2.0, SSL/TLS
+## 7. Project Files (Deliverables)
+The file structure has been organized to support a modern Next.js application.
+
+1.  **/src/app/** – Core application routing, pages, and layouts using the Next.js App Router.
+    -   `(auth)`: Route group for login and signup pages.
+    -   `sessions/[id]`: Dynamic route for session detail pages.
+    -   `dashboard`, `profile`, `about`, `contact`: Static routes for main application pages.
+2.  **/src/components/** – Reusable React components.
+    -   `/ui/`: Automatically generated components from ShadCN UI (Button, Card, etc.).
+    -   `/auth/`: Components related to user authentication.
+    -   `/chat/`: Components for the AI chatbot.
+    -   `/layout/`: Site-wide layout components like the header and footer.
+3.  **/src/lib/** – Core application logic, data, and type definitions.
+    -   `auth.tsx`: Authentication context and hooks for managing user state.
+    -   `data.ts`: Mock data for sessions, speakers, and users.
+    -   `types.ts`: TypeScript type definitions for data structures.
+    -   `placeholder-images.json`: A centralized file for managing all placeholder image data.
+4.  **/src/ai/** – Genkit flows for AI-powered features.
+    -   `/flows/`: Contains the logic for the AI assistant and other generative AI tasks.
+5.  **/public/** - Static assets, including the `index.html` for redirection.
 
 ---
 
-## 8. Use Cases & Functional Requirements
-### Use Cases
-- **UC1: User Authentication** – Secure login/logout.
-- **UC2: Data Query** – Users request reports/analytics.
-- **UC3: External Integration** – Pull live data from APIs.
-
-### Functional Requirements
-- Secure authentication required for all users.
-- Data must be retrievable in < 2s.
-- Reports exportable in PDF/CSV.
-
----
-
-## 9. Non-functional Requirements
-- **Performance:** Support 10,000 concurrent users.
-- **Scalability:** Must scale horizontally.
-- **Reliability:** 99.9% uptime.
-- **Security:** End-to-end encryption.
-
----
-
-## 10. Conclusion & Future Enhancements
-Project Nexus delivers centralized, modular integration with scalability and high performance.  
-**Future Enhancements:**
-- AI-powered recommendations.
-- Blockchain-based audit trail.
-- Multilingual & multi-currency support.
-- Predictive analytics.
-
----
-
-## 11. Project Files (Deliverables)
-1. **/docs/** – Documentation folder  
-   - `Project_Nexus_Documentation.pdf`  
-   - `System_Architecture_Diagram.png`  
-   - `Workflow_Flowchart.png`  
-
-2. **/src/** – Source code folder  
-   - `/frontend/` – React.js/Flutter UI code  
-   - `/backend/` – Node.js/Django APIs  
-   - `/modules/` – Authentication, Analytics, Integration modules  
-
-3. **/db/** – Database files  
-   - `schema.sql` – Database schema  
-   - `seed_data.sql` – Initial dataset  
-
-4. **/config/** – Configurations  
-   - `app_config.json` – App settings  
-   - `security_config.json` – Security & authentication  
-
-5. **/tests/** – Testing suite  
-   - `unit_tests.py`  
-   - `integration_tests.py`  
-
-6. **/deployment/** – Deployment files  
-   - `Dockerfile`  
-   - `docker-compose.yml`  
-   - `k8s-deployment.yaml`  
-
----
-
-## 12. File Structure
+## 8. File Structure
 
 ```
 .
@@ -184,194 +139,60 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 ├── README.md
 ├── apphosting.yaml
 ├── components.json
-├── config
-│   ├── app_config.json
-│   └── security_config.json
-├── db
-│   ├── schema.ts
-│   └── seed_data.ts
-├── deployment
-│   ├── docker-compose.yml
-│   └── k8s-deployment.yaml
-├── next-env.d.ts
 ├── next.config.ts
 ├── package.json
 ├── public
 │   └── index.html
 ├── src
-│   ├── ai
-│   │   ├── dev.ts
-│   │   ├── flows
-│   │   │   ├── ai-session-assistant-flow.ts
-│   │   │   └── general-gdg-query.ts
-│   │   └── genkit.ts
-│   ├── app
-│   │   ├── (auth)
-│   │   │   ├── login
-│   │   │   │   └── page.tsx
-│   │   │   └── signup
-│   │   │       └── page.tsx
-│   │   ├── about
-│   │   │   └── page.tsx
+│   ├── ai
+│   │   ├── dev.ts
+│   │   ├── flows
+│   │   │   ├── ai-session-assistant-flow.ts
+│   │   │   └── general-gdg-query.ts
+│   │   └── genkit.ts
+│   ├── app
+│   │   ├── (auth)
+│   │   │   ├── login/page.tsx
+│   │   │   └── signup/page.tsx
+│   │   ├── about/page.tsx
 │   │   ├── admin
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
-│   │   ├── contact
-│   │   │   └── page.tsx
-│   │   ├── contests
-│   │   │   └── page.tsx
-│   │   ├── dashboard
-│   │   │   └── page.tsx
-│   │   ├── hackathons
-│   │   │   └── page.tsx
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── profile
-│   │   │   └── page.tsx
-│   │   └── sessions
-│   │       └── [id]
-│   │           └── page.tsx
-│   │   └── workshops
-│   │       └── page.tsx
-│   ├── components
-│   │   ├── admin
-│   │   │   └── admin-sidebar.tsx
-│   │   ├── auth
-│   │   │   └── user-auth-form.tsx
-│   │   ├── chat
-│   │   │   └── ai-chat.tsx
-│   │   ├── layout
-│   │   │   ├── header.tsx
-│   │   │   └── site-footer.tsx
-│   │   ├── logo.tsx
-│   │   ├── session
-│   │   │   ├── session-card.tsx
-│   │   │   └── session-list.tsx
-│   │   ├── theme-provider.tsx
-│   │   ├── theme-toggle.tsx
-│   │ .
-├── .env
-├── README.md
-├── apphosting.yaml
-├── components.json
-├── config
-│   ├── app_config.json
-│   └── security_config.json
-├── db
-│   ├── schema.ts
-│   └── seed_data.ts
-├── deployment
-│   ├── docker-compose.yml
-│   └── k8s-deployment.yaml
-├── next-env.d.ts
-├── next.config.ts
-├── package.json
-├── public
-│   └── index.html
-├── src
-│   ├── ai
-│   │   ├── dev.ts
-│   │   ├── flows
-│   │   │   ├── ai-session-assistant-flow.ts
-│   │   │   └── general-gdg-query.ts
-│   │   └── genkit.ts
-│   ├── app
-│   │   ├── (auth)
-│   │   │   ├── login
-│   │   │   │   └── page.tsx
-│   │   │   └── signup
-│   │   │       └── page.tsx
-│   │   ├── about
-│   │   │   └── page.tsx
-│   │   ├── admin
-│   │   │   ├── layout.tsx
-│   │   │   └── page.tsx
-│   │   ├── contact
-│   │   │   └── page.tsx
-│   │   ├── contests
-│   │   │   └── page.tsx
-│   │   ├── dashboard
-│   │   │   └── page.tsx
-│   │   ├── hackathons
-│   │   │   └── page.tsx
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── profile
-│   │   │   └── page.tsx
-│   │   └── sessions
-│   │       └── [id]
-│   │           └── page.tsx
-│   │   └── workshops
-│   │       └── page.tsx
-│   ├── components
-│   │   ├── admin
-│   │   │   └── admin-sidebar.tsx
-│   │   ├── auth
-│   │   │   └── user-auth-form.tsx
-│   │   ├── chat
-│   │   │   └── ai-chat.tsx
-│   │   ├── layout
-│   │   │   ├── header.tsx
-│   │   │   └── site-footer.tsx
-│   │   ├── logo.tsx
-│   │   ├── session
-│   │   │   ├── session-card.tsx
-│   │   │   └── session-list.tsx
-│   │   ├── theme-provider.tsx
-│   │   ├── theme-toggle.tsx
-│   │   ├── ui
-│   │   │   ├── accordion.tsx
-│   │   │   ├── alert-dialog.tsx
-│   │   │   ├── alert.tsx
-│   │   │   ├── avatar.tsx
-│   │   │   ├── badge.tsx
-│   │   │   ├── button.tsx
-│   │   │   ├── calendar.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── carousel.tsx
-│   │   │   ├── chart.tsx
-│   │   │   ├── checkbox.tsx
-│   │   │   ├── collapsible.tsx
-│   │   │   ├── dialog.tsx
-│   │   │   ├── dropdown-menu.tsx
-│   │   │   ├── form.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── label.tsx
-│   │   │   ├── menubar.tsx
-│   │   │   ├── popover.tsx
-│   │   │   ├── progress.tsx
-│   │   │   ├── radio-group.tsx
-│   │   │   ├── scroll-area.tsx
-│   │   │   ├── select.tsx
-│   │   │   ├── separator.tsx
-│   │   │   ├── sheet.tsx
-│   │   │   ├── sidebar.tsx
-│   │   │   ├── skeleton.tsx
-│   │   │   ├── slider.tsx
-│   │   │   ├── switch.tsx
-│   │   │   ├── table.tsx
-│   │   │   ├── tabs.tsx
-│   │ _ │   ├── textarea.tsx
-│   │   │   ├── toast.tsx
-│   │   │   ├── toaster.tsx
-│   │   │   └── tooltip.tsx
-│   │   └── user-avatar.tsx
-│   ├── hooks
-│   │   ├── use-mobile.tsx
-│   │   └── use-toast.ts
-│   └── lib
-│       ├── auth.tsx
-│       ├── data.ts
-│       ├── placeholder-images.json
-│       ├── placeholder-images.ts
-│       ├── types.ts
-│       └── utils.ts
-├── tailwind.config.ts
-├── tests
-│   ├── integration_tests.ts
-│   └── unit_tests.ts
+│   │   ├── contact/page.tsx
+│   │   ├── contests/page.tsx
+│   │   ├── dashboard/page.tsx
+│   │   ├── hackathons/page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── profile/page.tsx
+│   │   ├── sessions/[id]/page.tsx
+│   │   └── workshops/page.tsx
+│   ├── components
+│   │   ├── admin/admin-sidebar.tsx
+│   │   ├── auth/user-auth-form.tsx
+│   │   ├── chat/ai-chat.tsx
+│   │   ├── layout
+│   │   │   ├── header.tsx
+│   │   │   └── site-footer.tsx
+│   │   ├── logo.tsx
+│   │   ├── session
+│   │   │   ├── session-card.tsx
+│   │   │   └── session-list.tsx
+│   │   ├── theme-provider.tsx
+│   │   ├── theme-toggle.tsx
+│   │   ├── ui/*
+│   │   └── user-avatar.tsx
+│   ├── hooks
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   └── lib
+│       ├── auth.tsx
+│       ├── data.ts
+│       ├── placeholder-images.json
+│       ├── placeholder-images.ts
+│       ├── types.ts
+│       └── utils.ts
 └── tsconfig.json
 ```
 
