@@ -176,4 +176,115 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 
 ---
 
+## 12. File Structure
+
+```
+.
+├── .env
+├── README.md
+├── apphosting.yaml
+├── components.json
+├── config
+│   ├── app_config.json
+│   └── security_config.json
+├── db
+│   ├── schema.ts
+│   └── seed_data.ts
+├── deployment
+│   ├── docker-compose.yml
+│   └── k8s-deployment.yaml
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── src
+│   ├── ai
+│   │   ├── dev.ts
+│   │   ├── flows
+│   │   │   ├── ai-session-assistant-flow.ts
+│   │   │   └── general-gdg-query.ts
+│   │   └── genkit.ts
+│   ├── app
+│   │   ├── (auth)
+│   │   │   ├── login
+│   │   │   │   └── page.tsx
+│   │   │   └── signup
+│   │   │       └── page.tsx
+│   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── profile
+│   │   │   └── page.tsx
+│   │   └── sessions
+│   │       └── [id]
+│   │           └── page.tsx
+│   ├── components
+│   │   ├── auth
+│   │   │   └── user-auth-form.tsx
+│   │   ├── chat
+│   │   │   └── ai-chat.tsx
+│   │   ├── layout
+│   │   │   ├── header.tsx
+│   │   │   └── site-footer.tsx
+│   │   ├── logo.tsx
+│   │   ├── session
+│   │   │   ├── session-card.tsx
+│   │   │   └── session-list.tsx
+│   │   ├── theme-provider.tsx
+│   │   ├── theme-toggle.tsx
+│   │   ├── ui
+│   │   │   ├── accordion.tsx
+│   │   │   ├── alert-dialog.tsx
+│   │   │   ├── alert.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── calendar.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── carousel.tsx
+│   │   │   ├── chart.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── collapsible.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── menubar.tsx
+│   │   │   ├── popover.tsx
+│   │   │   ├── progress.tsx
+│   │   │   ├── radio-group.tsx
+│   │   │   ├── scroll-area.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── sidebar.tsx
+│   │   │   ├── skeleton.tsx
+│   │   │   ├── slider.tsx
+│   │   │   ├── switch.tsx
+│   │   │   ├── table.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── toast.tsx
+│   │   │   ├── toaster.tsx
+│   │   │   └── tooltip.tsx
+│   │   └── user-avatar.tsx
+│   ├── hooks
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   └── lib
+│       ├── auth.tsx
+│       ├── data.ts
+│       ├── placeholder-images.json
+│       ├── placeholder-images.ts
+│       ├── types.ts
+│       └── utils.ts
+├── tailwind.config.ts
+├── tests
+│   ├── integration_tests.ts
+│   └── unit_tests.ts
+└── tsconfig.json
+```
+
 # ✅ End of Documentation – PROJECT NEXUS
