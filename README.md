@@ -233,6 +233,60 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   │   └── session-list.tsx
 │   │   ├── theme-provider.tsx
 │   │   ├── theme-toggle.tsx
+│   │ .
+├── .env
+├── README.md
+├── apphosting.yaml
+├── components.json
+├── config
+│   ├── app_config.json
+│   └── security_config.json
+├── db
+│   ├── schema.ts
+│   └── seed_data.ts
+├── deployment
+│   ├── docker-compose.yml
+│   └── k8s-deployment.yaml
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── src
+│   ├── ai
+│   │   ├── dev.ts
+│   │   ├── flows
+│   │   │   ├── ai-session-assistant-flow.ts
+│   │   │   └── general-gdg-query.ts
+│   │   └── genkit.ts
+│   ├── app
+│   │   ├── (auth)
+│   │   │   ├── login
+│   │   │   │   └── page.tsx
+│   │   │   └── signup
+│   │   │       └── page.tsx
+│   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── profile
+│   │   │   └── page.tsx
+│   │   └── sessions
+│   │       └── [id]
+│   │           └── page.tsx
+│   ├── components
+│   │   ├── auth
+│   │   │   └── user-auth-form.tsx
+│   │   ├── chat
+│   │   │   └── ai-chat.tsx
+│   │   ├── layout
+│   │   │   ├── header.tsx
+│   │   │   └── site-footer.tsx
+│   │   ├── logo.tsx
+│   │   ├── session
+│   │   │   ├── session-card.tsx
+│   │   │   └── session-list.tsx
+│   │   ├── theme-provider.tsx
+│   │   ├── theme-toggle.tsx
 │   │   ├── ui
 │   │   │   ├── accordion.tsx
 │   │   │   ├── alert-dialog.tsx
@@ -265,7 +319,7 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   │   ├── switch.tsx
 │   │   │   ├── table.tsx
 │   │   │   ├── tabs.tsx
-│   │   │   ├── textarea.tsx
+│   │ _ │   ├── textarea.tsx
 │   │   │   ├── toast.tsx
 │   │   │   ├── toaster.tsx
 │   │   │   └── tooltip.tsx
@@ -288,3 +342,5 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 ```
 
 # ✅ End of Documentation – PROJECT NEXUS
+
+    
