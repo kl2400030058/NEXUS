@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "session-1",
+      "description": "A person giving a tech talk on a stage with a presentation screen in the background.",
+      "imageUrl": "https://images.unsplash.com/photo-1573166826272-5acd0ef8f650?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwdGFsa3xlbnwwfHx8fDE3NTg3MTI4NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech talk"
+    },
+    {
+      "id": "session-2",
+      "description": "A group of people collaborating around a table with laptops at a workshop.",
+      "imageUrl": "https://images.unsplash.com/photo-1735639013995-086e648eaa38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29ya3Nob3AlMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTc1ODcxNzg5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workshop collaboration"
+    },
+    {
+      "id": "session-3",
+      "description": "Lines of colorful code on a dark computer screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1658274474851-fda40d4c309d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc1ODcwNDgxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "session-4",
+      "description": "A vibrant and modern conference hall filled with attendees.",
+      "imageUrl": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25mZXJlbmNlJTIwaGFsbHxlbnwwfHx8fDE3NTg2MzA0NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "conference hall"
+    },
+    {
+      "id": "speaker-1",
+      "description": "Headshot of a smiling woman with dark hair, professional attire.",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODY0MDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "speaker-2",
+      "description": "Headshot of a man with glasses and a beard, smiling lightly.",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg3MDg5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "speaker-3",
+      "description": "Headshot of a person with short hair, looking thoughtfully at the camera.",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg2OTE2MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "user-avatar-1",
+      "description": "An abstract pattern of blue and purple geometric shapes.",
+      "imageUrl": "https://images.unsplash.com/photo-1585854467604-cf2080ccef31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMHBhdHRlcm58ZW58MHx8fHwxNzU4Njg1MDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract pattern"
+    }
+  ]
 }
