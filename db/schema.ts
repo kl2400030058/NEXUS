@@ -1,2 +1,49 @@
-// This file will contain the database schema definitions.
-// For example, using Zod for validation.
+import { z } from 'zod';
+
+// Base user schema
+export const UserSchema = z.object({
+  uid: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+  role: z.enum(['user', 'admin']).default('user'),
+  status: z.enum(['active', 'blocked']).default('active'),
+});
+
+// Event schema
+export const EventSchema = z.object({
+  eventId: z.string(),
+  title: z.string(),
+  description: z.string(),
+  date: z.string(), // Using string for timestamp for simplicity, can be z.date()
+  venue: z.string(),
+  status: z.enum(['upcoming', 'live', 'completed']),
+  createdBy: z.string(), // adminId
+  crew: z.array(z.string()), // array of userIds
+  participants: z.record(z.object({
+    status: z.enum(['approved', 'pending', 'rejected']),
+    attended: z.boolean(),
+  })),
+  resources: z.array(z.string()), // array of resource links or names
+});
+
+// Feedback schema
+export const FeedbackSchema = z.object({
+  feedbackId: z.string(),
+  eventId: z.string(),
+  userId: z.string(),
+  rating: z.number().min(1).max(5),
+  comments: z.string().optional(),
+});
+
+// Notification schema
+export const NotificationSchema = z.object({
+  notificationId: z.string(),
+  targetRole: z.enum(['user', 'admin', 'all']),
+  message: z.string(),
+  createdAt: z.string(), // Using string for timestamp
+});
+
+export type User = z.infer<typeof UserSchema>;
+export type Event = z.infer<typeof EventSchema>;
+export type Feedback = z.infer<typeof FeedbackSchema>;
+export type Notification = z.infer<typeof NotificationSchema>;
