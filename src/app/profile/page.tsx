@@ -1,11 +1,16 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { getSessions } from '@/lib/data';
+import type { Session, Speaker } from '@/lib/types';
+import { format } from 'date-fns';
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -13,11 +18,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from '@/components/ui/badge';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
 import { placeholderImages } from '@/lib/placeholder-images.json';
-import { Loader2, User, KeyRound, Briefcase, BookOpen } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
+import { Loader2, Calendar, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const profileSchema = z.object({
@@ -34,6 +38,8 @@ export default function ProfilePage() {
   const router = useRouter();
   const [isSaving, setIsSaving] = useState(false);
   const { toast } = useToast();
+  const [bookedSessions, setBookedSessions] = useState<(Session & { speaker: Speaker })[]>([]);
+  const [sessionsLoading, setSessionsLoading] = useState(true);
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
@@ -56,6 +62,14 @@ export default function ProfilePage() {
         chapter: user.chapter,
         skills: user.skills.join(", "),
       });
+      
+      setSessionsLoading(true);
+      getSessions().then(allSessions => {
+        const userBooked = allSessions.filter(s => user.bookedSessions.includes(s.id));
+        setBookedSessions(userBooked);
+        setSessionsLoading(false);
+      })
+
     }
   }, [user, loading, router, form]);
 
@@ -91,7 +105,7 @@ export default function ProfilePage() {
   return (
     <div className="container mx-auto max-w-4xl py-12">
       <h1 className="text-3xl font-bold mb-8 font-headline">My Profile</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         <div className="md:col-span-1 space-y-6">
            <Card>
                 <CardContent className="pt-6 flex flex-col items-center text-center">
@@ -104,6 +118,40 @@ export default function ProfilePage() {
                      <p className="text-sm text-muted-foreground mt-2">{user.chapter}</p>
                 </CardContent>
             </Card>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>My Booked Sessions</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    {sessionsLoading ? (
+                        <div className="space-y-4">
+                            <Skeleton className="h-10 w-full" />
+                            <Skeleton className="h-10 w-full" />
+                        </div>
+                    ) : bookedSessions.length > 0 ? (
+                        <div className="space-y-4">
+                            {bookedSessions.map(session => (
+                                <div key={session.id} className="flex items-center justify-between">
+                                    <div>
+                                        <Link href={`/sessions/${session.id}`} className="font-medium hover:underline">{session.title}</Link>
+                                        <p className="text-sm text-muted-foreground flex items-center gap-2">
+                                            <Calendar className="h-4 w-4" />
+                                            {format(new Date(session.date), 'MMM d, yyyy')}
+                                        </p>
+                                    </div>
+                                    <Button asChild variant="ghost" size="sm">
+                                        <Link href={`/sessions/${session.id}`}><ArrowRight className="h-4 w-4" /></Link>
+                                    </Button>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-sm text-muted-foreground text-center">You haven&apos;t booked any sessions yet.</p>
+                    )}
+                </CardContent>
+            </Card>
+
         </div>
 
         <div className="md:col-span-2">
@@ -140,7 +188,6 @@ export default function ProfilePage() {
                             <FormItem>
                                 <FormLabel>Skills</FormLabel>
                                 <FormControl><Input placeholder="React, Firebase, AI" {...field} /></FormControl>
-                                <FormDescription>Separate skills with a comma.</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )} />
@@ -168,12 +215,21 @@ function ProfileSkeleton() {
         <div className="container mx-auto max-w-4xl py-12">
             <Skeleton className="h-10 w-1/3 mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-1">
+                <div className="md:col-span-1 space-y-6">
                     <Card>
                         <CardContent className="pt-6 flex flex-col items-center">
                             <Skeleton className="h-24 w-24 rounded-full mb-4" />
                             <Skeleton className="h-8 w-3/4 mb-2" />
                             <Skeleton className="h-5 w-full" />
+                        </CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader>
+                            <Skeleton className="h-7 w-3/4" />
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                           <Skeleton className="h-10 w-full" />
+                           <Skeleton className="h-10 w-full" />
                         </CardContent>
                     </Card>
                 </div>
@@ -195,3 +251,5 @@ function ProfileSkeleton() {
         </div>
     )
 }
+
+    
