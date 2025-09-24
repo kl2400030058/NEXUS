@@ -3,6 +3,12 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { UserAvatar } from "@/components/user-avatar";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function SiteHeader() {
   return (
@@ -26,9 +32,18 @@ export function SiteHeader() {
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/workshops">Workshops</Link>
              </Button>
-              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
-                <Link href="/about">Connect</Link>
-             </Button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
+                      <Link href="/about">Connect</Link>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>About & Contact</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
           </nav>
         </div>
 
