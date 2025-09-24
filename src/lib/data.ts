@@ -54,7 +54,8 @@ const sessions: Session[] = [
     resources: [
         { name: 'Presentation Slides', url: '#' },
         { name: 'Gemini API Docs', url: '#' }
-    ]
+    ],
+    tags: ['Gen AI', 'AI/ML']
   },
   {
     id: 'session-2',
@@ -69,7 +70,8 @@ const sessions: Session[] = [
     category: 'Workshop',
     resources: [
         { name: 'Workshop Materials (GitHub)', url: '#' },
-    ]
+    ],
+    tags: ['UI/UX', 'Web Dev']
   },
   {
     id: 'session-3',
@@ -85,7 +87,8 @@ const sessions: Session[] = [
     resources: [
        { name: 'Codelab Instructions', url: '#' },
        { name: 'Starter Project (GitHub)', url: '#' }
-    ]
+    ],
+    tags: ['Web Dev', 'Cloud']
   },
    {
     id: 'session-4',
@@ -98,7 +101,8 @@ const sessions: Session[] = [
     venue: 'Main Auditorium',
     coverImageId: 'session-5',
     category: 'Talk',
-    resources: []
+    resources: [],
+    tags: ['Mobile']
   },
   {
     id: 'session-5',
@@ -113,7 +117,8 @@ const sessions: Session[] = [
     category: 'Workshop',
      resources: [
        { name: 'OWASP Top 10', url: '#' },
-    ]
+    ],
+    tags: ['Web Dev', 'Security']
   },
    {
     id: 'session-6',
@@ -128,7 +133,8 @@ const sessions: Session[] = [
     category: 'Talk',
     resources: [
        { name: 'Presentation Slides', url: '#' },
-    ]
+    ],
+    tags: ['Tools', 'Web Dev']
   },
   {
     id: 'session-7',
@@ -143,7 +149,8 @@ const sessions: Session[] = [
     category: 'Workshop',
     resources: [
        { name: 'API Starter Kit (GitHub)', url: '#' },
-    ]
+    ],
+    tags: ['Web Dev', 'Cloud']
   },
   {
     id: 'session-8',
@@ -158,7 +165,8 @@ const sessions: Session[] = [
     category: 'Codelab',
     resources: [
        { name: 'PWA Codelab Guide', url: '#' },
-    ]
+    ],
+    tags: ['Web Dev', 'Mobile']
   },
   {
     id: 'session-9',
@@ -173,7 +181,8 @@ const sessions: Session[] = [
     category: 'Codelab',
     resources: [
         { name: 'Angular Signals Docs', url: '#' },
-    ]
+    ],
+    tags: ['Web Dev', 'Angular']
   }
 ];
 

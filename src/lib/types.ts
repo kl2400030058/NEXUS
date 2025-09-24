@@ -17,8 +17,9 @@ export type Session = {
   time: string;
   venue: string;
   coverImageId: string;
-  category: 'Workshop' | 'Talk' | 'Codelab';
+  category: 'Workshop' | 'Talk' | 'Codelab' | 'Hackathon' | 'Contest';
   resources?: { name: string; url: string }[];
+  tags: string[];
 };
 
 export type UserProfile = {

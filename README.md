@@ -196,6 +196,8 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package.json
+├── public
+│   └── index.html
 ├── src
 │   ├── ai
 │   │   ├── dev.ts
@@ -209,7 +211,18 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   │   │   └── page.tsx
 │   │   │   └── signup
 │   │   │       └── page.tsx
+│   │   ├── about
+│   │   │   └── page.tsx
+│   │   ├── admin
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── contact
+│   │   │   └── page.tsx
+│   │   ├── contests
+│   │   │   └── page.tsx
 │   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── hackathons
 │   │   │   └── page.tsx
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -219,7 +232,11 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   └── sessions
 │   │       └── [id]
 │   │           └── page.tsx
+│   │   └── workshops
+│   │       └── page.tsx
 │   ├── components
+│   │   ├── admin
+│   │   │   └── admin-sidebar.tsx
 │   │   ├── auth
 │   │   │   └── user-auth-form.tsx
 │   │   ├── chat
@@ -250,6 +267,8 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package.json
+├── public
+│   └── index.html
 ├── src
 │   ├── ai
 │   │   ├── dev.ts
@@ -263,7 +282,18 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   │   │   └── page.tsx
 │   │   │   └── signup
 │   │   │       └── page.tsx
+│   │   ├── about
+│   │   │   └── page.tsx
+│   │   ├── admin
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── contact
+│   │   │   └── page.tsx
+│   │   ├── contests
+│   │   │   └── page.tsx
 │   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── hackathons
 │   │   │   └── page.tsx
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -273,7 +303,11 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   │   └── sessions
 │   │       └── [id]
 │   │           └── page.tsx
+│   │   └── workshops
+│   │       └── page.tsx
 │   ├── components
+│   │   ├── admin
+│   │   │   └── admin-sidebar.tsx
 │   │   ├── auth
 │   │   │   └── user-auth-form.tsx
 │   │   ├── chat
@@ -340,221 +374,6 @@ Project Nexus delivers centralized, modular integration with scalability and hig
 │   └── unit_tests.ts
 └── tsconfig.json
 ```
-
----
-
-# 📘 Project Nexus – Admin Mode Documentation
-
-## 1. Overview
-
-**Admin Mode** is a dedicated dashboard for organizers to manage events, users, notifications, and system analytics. It works with the same Firebase backend as the user repo, ensuring seamless integration while keeping the codebases separate.
-
-### Admin Capabilities:
-
-* Full **Event Conduction** (create → manage → track → close → report).
-* **User Management** (view, promote/demote, deactivate).
-* **Feedback & Reports** (access and export).
-* **Notifications & Announcements** (targeted or global).
-* **Analytics** (attendance, feedback, system metrics).
-
----
-
-## 2. Event Lifecycle for Admins
-
-1. **Create Event** – Title, description, date, venue, resources.
-2. **Manage Registration** – Approve/reject participants, set seat limits.
-3. **Assign Crew/Organizers** – Select users to manage event tasks.
-4. **Track Live Event** – Attendance tracking, live announcements.
-5. **Close Event** – Lock registration, collect feedback, generate reports.
-
----
-
-## 3. Firestore Schema – Admin-Focused
-
-```json
-{
-  "users": {
-    "{userId}": {
-      "name": "John Doe",
-      "email": "john@email.com",
-      "role": "user|admin",
-      "status": "active|blocked"
-    }
-  },
-  "events": {
-    "{eventId}": {
-      "title": "Hackathon 2025",
-      "description": "24-hour coding challenge",
-      "date": "timestamp",
-      "venue": "Main Hall",
-      "status": "upcoming|live|completed",
-      "createdBy": "adminId",
-      "crew": ["userId1", "userId2"],
-      "participants": {
-        "userId1": { "status": "approved", "attended": true },
-        "userId2": { "status": "pending", "attended": false }
-      },
-      "resources": ["poster.png", "schedule.pdf"]
-    }
-  },
-  "feedback": {
-    "{feedbackId}": {
-      "eventId": "eventId",
-      "userId": "userId",
-      "rating": 4,
-      "comments": "Great session!"
-    }
-  },
-  "notifications": {
-    "{notificationId}": {
-      "targetRole": "user|admin|all",
-      "message": "Event starting soon",
-      "createdAt": "timestamp"
-    }
-  }
-}
-```
-
----
-
-## 4. Firestore Security Rules – Admin-Specific
-
-```js
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // USERS
-    match /users/{userId} {
-      allow read: if request.auth != null;
-      allow update: if request.auth.uid == userId;
-      allow write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
-    }
-
-    // EVENTS
-    match /events/{eventId} {
-      allow read: if request.auth != null;
-      allow write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
-    }
-
-    // FEEDBACK
-    match /feedback/{feedbackId} {
-      allow create: if request.auth != null;
-      allow read: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"; 
-    }
-
-    // NOTIFICATIONS
-    match /notifications/{notificationId} {
-      allow read: if request.auth != null;
-      allow write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
-    }
-  }
-}
-```
-
----
-
-## 5. Admin Dashboard Modules
-
-### a. Authentication
-
-* Firebase Auth login.
-* Role check to ensure `admin`.
-
-### b. Event Management
-
-* Create/edit/delete events.
-* Approve/reject participants.
-* Assign crew/organizers.
-* Track live attendance.
-* Close events & generate reports.
-
-### c. Users Management
-
-* List all users.
-* Promote/demote roles (`user` ⇄ `admin`).
-* Block/activate accounts.
-
-### d. Notifications
-
-* Create global or targeted notifications.
-* Push notifications to users in real-time.
-
-### e. Feedback & Reports
-
-* Access all event feedback.
-* Generate analytics reports (PDF/CSV).
-
-### f. Analytics
-
-* Dashboard charts: active users, participation, feedback.
-* Predictive trend analysis (future feature).
-
----
-
-## 6. Admin Dashboard File Structure (Aligned with User Repo)
-
-```
-/admin-dashboard/
-├── src/
-│   ├── app/
-│   │   ├── auth/
-│   │   │   └── login/page.tsx
-│   │   ├── dashboard/page.tsx
-│   │   ├── events/
-│   │   │   ├── create/page.tsx
-│   │   │   ├── manage/page.tsx
-│   │   │   └── report/page.tsx
-│   │   ├── users/page.tsx
-│   │   ├── feedback/page.tsx
-│   │   ├── notifications/page.tsx
-│   │   └── analytics/page.tsx
-│   ├── components/
-│   │   ├── sidebar.tsx
-│   │   ├── header.tsx
-│   │   ├── event-card.tsx
-│   │   ├── user-table.tsx
-│   │   ├── feedback-list.tsx
-│   │   └── chart.tsx
-│   ├── firebase.js
-│   └── App.tsx
-├── public/
-├── package.json
-├── tailwind.config.ts
-├── README.md
-└── tsconfig.json
-```
-
----
-
-## 7. Event Conduction Flow (Admin)
-
-```
-Admin → Login → Dashboard → Events Module
-   → Create Event → Assign Crew → Approve Participants
-   → Track Live Event → Close Event → Export Reports
-```
-
----
-
-## 8. User Documentation (Existing Repo)
-
-* **Login/Signup:** Users can create accounts and login.
-* **Dashboard:** View available events, register, and check registration status.
-* **Event Participation:** Join events, mark attendance if required.
-* **Feedback:** Submit feedback post-event.
-* **Notifications:** Receive announcements from admin in real-time.
-
-**Note:** The user repo remains unchanged; the admin repo manages the backend and controls data visibility.
-
----
-
-## 9. Future Admin Enhancements
-
-* AI-based participant recommendations for events.
-* Blockchain-based event certificate verification.
-* Automated reminder notifications.
-* Predictive analytics on user activity and participation trends.
 
 ---
 

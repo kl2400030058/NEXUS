@@ -7,6 +7,11 @@ export const UserSchema = z.object({
   email: z.string().email(),
   role: z.enum(['user', 'admin']).default('user'),
   status: z.enum(['active', 'blocked']).default('active'),
+  gamification: z.object({
+    points: z.number().default(0),
+    badges: z.array(z.string()).default([]),
+    achievements: z.array(z.string()).default([]),
+  }).default({ points: 0, badges: [], achievements: [] }),
 });
 
 // Event schema
@@ -24,6 +29,7 @@ export const EventSchema = z.object({
     attended: z.boolean(),
   })),
   resources: z.array(z.string()), // array of resource links or names
+  eventType: z.enum(['conference', 'hackathon', 'study-jam', 'meetup', 'devfest', 'contest']),
 });
 
 // Feedback schema

@@ -15,18 +15,18 @@ export function SiteHeader() {
                 <Link href="/dashboard">Dashboard</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
-                <Link href="/#sessions">Sessions</Link>
+                <Link href="/hackathons">Hackathons</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
-                <Link href="/speakers">Speakers</Link>
+                <Link href="/contests">Contests</Link>
+             </Button>
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+                <Link href="/workshops">Workshops</Link>
              </Button>
               <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/about">About</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
-                <Link href="/profile">Profile</Link>
-             </Button>
-              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/contact">Contact</Link>
              </Button>
           </nav>
