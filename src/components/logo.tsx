@@ -11,10 +11,12 @@ export function Logo() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-7 w-7 text-primary"
+            className="h-7 w-7"
         >
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"></path>
-            <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#4285F4" stroke="none"></path>
+          <path d="M2 17l10 5 10-5" fill="#34A853" stroke="none"></path>
+          <path d="M2 7l10 5v10L2 17V7z" fill="#FBBC05" stroke="none"></path>
+           <path d="M22 7l-10 5v10l10-5V7z" fill="#EA4335" stroke="none"></path>
         </svg>
       <span className="text-xl font-bold tracking-tight text-foreground font-headline">Nexus</span>
     </Link>
