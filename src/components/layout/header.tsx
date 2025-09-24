@@ -15,6 +15,9 @@ export function SiteHeader() {
                 <Link href="/dashboard">Dashboard</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
+                <Link href="/speakers">Speakers</Link>
+             </Button>
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
                 <Link href="/hackathons">Hackathons</Link>
              </Button>
              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm font-medium">
@@ -42,3 +45,5 @@ export function SiteHeader() {
     </header>
   );
 }
+
+    

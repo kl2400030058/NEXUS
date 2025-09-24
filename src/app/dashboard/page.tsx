@@ -53,7 +53,7 @@ export default function DashboardPage() {
     <div className="container mx-auto py-12">
       <h1 className="text-3xl font-bold mb-8 font-headline">Status Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-8">
-        <Link href="/#sessions">
+        <Link href="/#sessions" passHref>
           <Card className="hover:bg-muted/50 transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Sessions</CardTitle>
@@ -65,7 +65,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </Link>
-        <Link href="/speakers">
+        <Link href="/speakers" passHref>
           <Card className="hover:bg-muted/50 transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Unique Speakers</CardTitle>
@@ -77,7 +77,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </Link>
-        <Link href="/profile">
+        <Link href="/profile" passHref>
             <Card className="hover:bg-muted/50 transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">My Booked Sessions</CardTitle>
@@ -219,6 +219,5 @@ function DashboardSkeleton() {
     </div>
   )
 }
-
 
     
