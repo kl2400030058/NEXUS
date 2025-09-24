@@ -183,6 +183,76 @@ const sessions: Session[] = [
         { name: 'Angular Signals Docs', url: '#' },
     ],
     tags: ['Web Dev', 'Angular']
+  },
+  {
+    id: 'session-10',
+    title: 'Gen AI Exchange Program',
+    description: 'An immersive 48-hour hackathon to build the next generation of AI-powered applications.',
+    longDescription: 'Join the Gen AI Exchange Program, a flagship event where developers, designers, and innovators come together to solve real-world problems using the latest in generative AI. Participants will get access to exclusive workshops, mentorship from Google experts, and cutting-edge tools. Compete for prizes and the opportunity to showcase your project to industry leaders.',
+    speakerId: 'speaker-1',
+    date: '2024-07-20',
+    time: '9:00 AM July 20 - 5:00 PM July 21',
+    venue: 'Innovation Hub',
+    coverImageId: 'session-11',
+    category: 'Hackathon',
+    resources: [],
+    tags: ['Gen AI', 'Hackathon']
+  },
+  {
+    id: 'session-11',
+    title: 'Cloud-Native Challenge',
+    description: 'A 24-hour hackathon focused on building and deploying scalable applications on Google Cloud.',
+    longDescription: 'Test your cloud skills in this fast-paced hackathon. Teams will be challenged to build a cloud-native solution for a specific problem statement, leveraging services like Cloud Run, Kubernetes Engine, and Firestore. Judges will evaluate solutions based on scalability, innovation, and effective use of cloud technologies.',
+    speakerId: 'speaker-3',
+    date: '2024-06-15',
+    time: '10:00 AM - 10:00 AM next day',
+    venue: 'Virtual Event',
+    coverImageId: 'session-12',
+    category: 'Hackathon',
+    resources: [],
+    tags: ['Cloud', 'Hackathon']
+  },
+  {
+    id: 'session-12',
+    title: 'Flutter Forward Hackathon',
+    description: 'Create a beautiful and functional cross-platform app with Flutter in just one weekend.',
+    longDescription: 'The Flutter Forward Hackathon challenges you to bring your creative app ideas to life. Whether it\'s a utility, a game, or a social app, build it with Flutter for a chance to win prizes and recognition. This event is open to all skill levels, with mentors available to help beginners get started.',
+    speakerId: 'speaker-4',
+    date: '2024-05-25',
+    time: '6:00 PM May 25 - 6:00 PM May 26',
+    venue: 'Community Hall',
+    coverImageId: 'session-13',
+    category: 'Hackathon',
+    resources: [],
+    tags: ['Mobile', 'Flutter', 'Hackathon']
+  },
+  {
+    id: 'session-13',
+    title: 'Secure Code Warriors',
+    description: 'A competitive hackathon where teams find and fix security vulnerabilities in sample applications.',
+    longDescription: 'Think like a hacker to defend against them. In Secure Code Warriors, teams will be given applications riddled with common security flaws. Your mission is to identify, exploit, and then patch these vulnerabilities. The team that secures their application most effectively wins. This is a hands-on event for developers who want to level up their security skills.',
+    speakerId: 'speaker-5',
+    date: '2024-04-12',
+    time: 'All Day',
+    venue: 'Online',
+    coverImageId: 'session-14',
+    category: 'Hackathon',
+    resources: [],
+    tags: ['Security', 'Hackathon']
+  },
+  {
+    id: 'session-14',
+    title: 'Sustainable Tech Hack',
+    description: 'Develop innovative tech solutions to address environmental and sustainability challenges.',
+    longDescription: 'Use your tech skills for good. The Sustainable Tech Hack is focused on creating projects that contribute to a greener planet. From waste reduction apps to energy consumption monitors, we challenge you to build solutions that make a real impact. This hackathon is a partnership with local environmental NGOs.',
+    speakerId: 'speaker-2',
+    date: '2024-03-22',
+    time: '48 Hours',
+    venue: 'University Campus',
+    coverImageId: 'session-15',
+    category: 'Hackathon',
+    resources: [],
+    tags: ['Social Good', 'Hackathon']
   }
 ];
 

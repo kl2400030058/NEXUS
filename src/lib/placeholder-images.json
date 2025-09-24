@@ -61,6 +61,36 @@
       "imageHint": "angular signals"
     },
     {
+      "id": "session-11",
+      "description": "An abstract image of AI and machine learning concepts.",
+      "imageUrl": "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnZW4lMjBhaSUyMGV4Y2hhbmdlfGVufDB8fHx8MTc2MDE1MzgxNnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "gen ai"
+    },
+    {
+      "id": "session-12",
+      "description": "An image of cloud servers and infrastructure.",
+      "imageUrl": "https://images.unsplash.com/photo-1544414322-998e3a4a70a3?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMG5hdGl2ZXxlbnwwfHx8fDE3NjAxNTM4ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "cloud native"
+    },
+    {
+      "id": "session-13",
+      "description": "A person holding a phone with a Flutter app on screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbHV0dGVyJTIwaGFja2F0aG9ufGVufDB8fHx8MTc2MDE1MzkyOHww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "flutter hackathon"
+    },
+    {
+      "id": "session-14",
+      "description": "A hacker-style image with green code on a black background.",
+      "imageUrl": "https://images.unsplash.com/photo-1526374965328-5f61d4dc18c5?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBjb2RlfGVufDB8fHx8MTc2MDE1Mzk3Mnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "secure code"
+    },
+    {
+      "id": "session-15",
+      "description": "A nature-inspired image with green leaves and technology elements.",
+      "imageUrl": "https://images.unsplash.com/photo-1492496913980-501348b61469?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHRlY2h8ZW58MHx8fHwxNzYwMTU0MDEw&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "sustainable tech"
+    },
+    {
       "id": "speaker-1",
       "description": "Headshot of a smiling woman with dark hair, professional attire.",
       "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODY0MDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
