@@ -142,7 +142,11 @@ const userProfiles: UserProfile[] = [
         chapter: 'GDG Mountain View',
         bookedSessions: ['session-1'],
         avatarImageId: 'user-avatar-1',
-        role: 'admin'
+        role: 'admin',
+        notificationPreferences: {
+            sessionReminders: true,
+            communityNewsletters: false,
+        }
     }
 ]
 

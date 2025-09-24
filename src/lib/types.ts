@@ -31,6 +31,10 @@ export type UserProfile = {
   bookedSessions: string[];
   avatarImageId: string;
   role: 'user' | 'admin';
+  notificationPreferences: {
+    sessionReminders: boolean;
+    communityNewsletters: boolean;
+  };
 };
 
 export type ChatMessage = {
