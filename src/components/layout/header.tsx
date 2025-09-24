@@ -8,20 +8,26 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <div className="flex gap-6 md:gap-10">
+        <div className="flex gap-6 md:gap-8">
           <Logo />
-          <nav className="hidden gap-6 md:flex">
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
+          <nav className="hidden gap-4 md:flex">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/dashboard">Dashboard</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/#sessions">Sessions</Link>
              </Button>
-             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/speakers">Speakers</Link>
              </Button>
-              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground">
+              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
                 <Link href="/about">About</Link>
+             </Button>
+             <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+                <Link href="/profile">Profile</Link>
+             </Button>
+              <Button variant="link" asChild className="text-muted-foreground hover:text-foreground text-sm">
+                <Link href="/contact">Contact</Link>
              </Button>
           </nav>
         </div>
