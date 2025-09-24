@@ -21,7 +21,7 @@ import { Badge } from '@/components/ui/badge';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
 import { placeholderImages } from '@/lib/placeholder-images.json';
-import { Loader2, Calendar, ArrowRight, Bell, Award, Star } from 'lucide-react';
+import { Loader2, Calendar, ArrowRight, Bell, Award, Star, BookUser } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Switch } from '@/components/ui/switch';
 
@@ -137,7 +137,7 @@ export default function ProfilePage() {
 
               <Card>
                 <CardHeader>
-                    <CardTitle>My Booked Sessions</CardTitle>
+                    <CardTitle className="flex items-center gap-2"><BookUser className="h-5 w-5"/>My Booked Sessions</CardTitle>
                 </CardHeader>
                 <CardContent>
                     {sessionsLoading ? (
@@ -216,25 +216,25 @@ export default function ProfilePage() {
             <Card>
               <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                      <Award className="h-5 w-5"/>
+                      <Award className="h-5 w-5 text-yellow-500"/>
                       My Stats & Achievements
                   </CardTitle>
                   <CardDescription>Your contributions and progress in the community.</CardDescription>
               </CardHeader>
-              <CardContent className="grid grid-cols-2 gap-6">
-                  <div className="flex items-center gap-4">
-                      <Star className="h-10 w-10 text-yellow-500"/>
+              <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="flex items-center gap-4 p-4 bg-primary/10 rounded-lg">
+                      <Star className="h-10 w-10 text-primary"/>
                       <div>
                           <p className="text-2xl font-bold">{gamification.points}</p>
                           <p className="text-sm text-muted-foreground">Total Points</p>
                       </div>
                   </div>
-                   <div className="flex flex-col gap-2">
-                       <h4 className="font-medium">Badges Earned</h4>
+                   <div className="flex flex-col gap-2 p-4 bg-secondary/50 rounded-lg">
+                       <h4 className="font-semibold text-secondary-foreground">Badges Earned</h4>
                         <div className="flex flex-wrap gap-2">
                             {gamification.badges.length > 0 ? gamification.badges.map(badge => (
-                                <Badge key={badge} variant="default" className="text-sm">{badge}</Badge>
-                            )) : <p className="text-sm text-muted-foreground">No badges yet!</p>}
+                                <Badge key={badge} variant="secondary" className="text-base py-1">{badge}</Badge>
+                            )) : <p className="text-sm text-muted-foreground">No badges yet! Attend events to earn them.</p>}
                         </div>
                    </div>
               </CardContent>

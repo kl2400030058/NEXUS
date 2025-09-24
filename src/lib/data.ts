@@ -413,7 +413,7 @@ const userProfiles: UserProfile[] = [
         },
         gamification: {
             points: 1250,
-            badges: ["Pioneer", "Early Bird"],
+            badges: ["Pioneer", "Early Bird", "Super Fan"],
             achievements: []
         }
     }
