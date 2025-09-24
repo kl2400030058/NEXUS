@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     // Check if user is "logged in" via localStorage
-    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const loggedIn = typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true';
     if (loggedIn) {
       setLoading(true);
       getUserProfile(MOCK_USER_ID).then(profile => {
@@ -47,7 +47,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const profile = await getUserProfile(MOCK_USER_ID);
     if(profile) {
       setUser(profile);
-      localStorage.setItem('isLoggedIn', 'true');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('isLoggedIn', 'true');
+      }
     }
     setLoading(false);
   };
@@ -63,14 +65,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const profile = await getUserProfile(MOCK_USER_ID);
      if(profile) {
       setUser({...profile, name, email});
-      localStorage.setItem('isLoggedIn', 'true');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('isLoggedIn', 'true');
+      }
     }
     setLoading(false);
   }
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('isLoggedIn');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('isLoggedIn');
+    }
   };
 
   const updateUserProfile = async (profileData: Partial<UserProfile>) => {
