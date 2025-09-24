@@ -69,7 +69,8 @@ const userProfiles: UserProfile[] = [
         skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Firebase'],
         chapter: 'GDG Mountain View',
         bookedSessions: ['session-1'],
-        avatarImageId: 'user-avatar-1'
+        avatarImageId: 'user-avatar-1',
+        role: 'admin'
     }
 ]
 

@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await new Promise(res => setTimeout(res, 500));
     const profile = await getUserProfile(MOCK_USER_ID);
      if(profile) {
-      setUser({...profile, name, email});
+      setUser({...profile, name, email, role: 'user'}); // New users are always 'user'
       if (typeof window !== 'undefined') {
         localStorage.setItem('isLoggedIn', 'true');
       }

@@ -1,3 +1,4 @@
+
 export type Speaker = {
   id: string;
   name: string;
@@ -27,6 +28,7 @@ export type UserProfile = {
   chapter: string;
   bookedSessions: string[];
   avatarImageId: string;
+  role: 'user' | 'admin';
 };
 
 export type ChatMessage = {
