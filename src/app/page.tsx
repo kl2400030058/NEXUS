@@ -119,7 +119,7 @@ export default function Home() {
 
       <section id="sessions" className="container mx-auto px-4 py-12 md:py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-headline">Upcoming Events</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-headline">Find Your Next Event</h2>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover workshops, talks, and codelabs from experts in the field.
           </p>
