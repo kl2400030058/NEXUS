@@ -1,4 +1,5 @@
 
+
 export type Speaker = {
   id: string;
   name: string;
@@ -18,6 +19,7 @@ export type Session = {
   venue: string;
   coverImageId: string;
   category: 'Workshop' | 'Talk' | 'Codelab' | 'Hackathon' | 'Contest';
+  teamSize?: number;
   resources?: { name: string; url: string }[];
   tags: string[];
 };
