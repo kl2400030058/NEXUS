@@ -25,6 +25,132 @@
       "imageHint": "conference hall"
     },
     {
+      "id": "session-5",
+      "description": "A smartphone screen showing a colorful Flutter application UI.",
+      "imageUrl": "https://images.unsplash.com/photo-1633533439113-7881593856d2?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbHV0dGVyJTIwYXBwfGVufDB8fHx8MTc1ODcyNzk5N3ww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "flutter app"
+    },
+    {
+      "id": "session-6",
+      "description": "A person wearing a hoodie looking at a screen with code, representing web security.",
+      "imageUrl": "https://images.unsplash.com/photo-1599658880115-a22a45d045c7?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWIlMjBzZWN1cml0eXxlbnwwfHx8fDE3NTg3MjgwODZ8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "web security"
+    },
+    {
+      "id": "session-7",
+      "description": "A complex branching diagram representing git version control.",
+      "imageUrl": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnaXQlMjB2ZXJzaW9uJTIwY29udHJvbHxlbnwwfHx8fDE3NTg3MjgyMDV8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "git version"
+    },
+    {
+      "id": "session-8",
+      "description": "A laptop showing lines of code for a Node.js server.",
+      "imageUrl": "https://images.unsplash.com/photo-1630514930796-9f4a8c916b5a?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxub2RlJTIwanMlMjBhcGl8ZW58MHx8fHwxNzU5MjM0MjgzfDA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "nodejs api"
+    },
+    {
+      "id": "session-9",
+      "description": "A mobile phone being held up, showing a web application installed on the home screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1621570169568-135824e86e35?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwd2ElMjBhcHB8ZW58MHx8fHwxNzU5MjM0MzU4fDA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "pwa app"
+    },
+    {
+      "id": "session-10",
+      "description": "An abstract visualization of reactive data streams, with signals and data flowing.",
+      "imageUrl": "https://images.unsplash.com/photo-1549619732-c3549e530960?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmd1bGFyJTIwc2lnbmFsc3xlbnwwfHx8fDE3NTkyMzQ0MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "angular signals"
+    },
+    {
+      "id": "session-11",
+      "description": "An abstract image of AI and machine learning concepts.",
+      "imageUrl": "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnZW4lMjBhaSUyMGV4Y2hhbmdlfGVufDB8fHx8MTc2MDE1MzgxNnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "gen ai"
+    },
+    {
+      "id": "session-12",
+      "description": "An image of cloud servers and infrastructure.",
+      "imageUrl": "https://images.unsplash.com/photo-1544414322-998e3a4a70a3?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMG5hdGl2ZXxlbnwwfHx8fDE3NjAxNTM4ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "cloud native"
+    },
+    {
+      "id": "session-13",
+      "description": "A person holding a phone with a Flutter app on screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbHV0dGVyJTIwaGFja2F0aG9ufGVufDB8fHx8MTc2MDE1MzkyOHww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "flutter hackathon"
+    },
+    {
+      "id": "session-14",
+      "description": "A hacker-style image with green code on a black background.",
+      "imageUrl": "https://images.unsplash.com/photo-1526374965328-5f61d4dc18c5?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBjb2RlfGVufDB8fHx8MTc2MDE1Mzk3Mnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "secure code"
+    },
+    {
+      "id": "session-15",
+      "description": "A nature-inspired image with green leaves and technology elements.",
+      "imageUrl": "https://images.unsplash.com/photo-1492496913980-501348b61469?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHRlY2h8ZW58MHx8fHwxNzYwMTU0MDEw&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "sustainable tech"
+    },
+    {
+      "id": "session-16",
+      "description": "An abstract design representing algorithms and data structures.",
+      "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbGdvcml0aG0lMjBjb250ZXN0fGVufDB8fHx8MTc2MDMzMjc5Nnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "algorithm contest"
+    },
+    {
+      "id": "session-17",
+      "description": "A wireframe sketch of a mobile app UI/UX design.",
+      "imageUrl": "https://images.unsplash.com/photo-1581287053822-fd7bf4f4bf3f?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZHZhbmNlZCUyMHVpJTIwdXh8ZW58MHx8fHwxNzYwMzMyODg2fDA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "advanced ui/ux"
+    },
+    {
+      "id": "session-18",
+      "description": "The Go language Gopher mascot in a code-related environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnbyUyMGxhbmd1YWdlfGVufDB8fHx8MTc2MDMzMjkzNnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "go language"
+    },
+    {
+      "id": "session-19",
+      "description": "A mobile phone showing the Android logo and Kotlin code.",
+      "imageUrl": "https://images.unsplash.com/photo-1618423192479-8c99f9c7a70a?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmRyb2lkJTIwa290bGlufGVufDB8fHx8MTc2MDMzMjk5MXww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "android kotlin"
+    },
+    {
+      "id": "session-20",
+      "description": "A complex and colorful data visualization chart.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NjAzMzMwNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "session-21",
+      "description": "A person running on a track made of binary code.",
+      "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2RlJTIwc3ByaW50fGVufDB8fHx8MTc2MDMzMzEwMHww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "code sprint"
+    },
+    {
+      "id": "session-22",
+      "description": "A magnifying glass over lines of code, searching for bugs.",
+      "imageUrl": "https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidWclMjBoYWNrfGVufDB8fHx8MTc2MDMzMzE0Nnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "bug bash"
+    },
+    {
+      "id": "session-23",
+      "description": "A graphic of a brain made of circuits, representing machine learning.",
+      "imageUrl": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2NpZW5jZSUyMGRlcmJ5fGVufDB8fHx8MTc2MDMzMzE4N3ww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "data science"
+    },
+    {
+      "id": "session-24",
+      "description": "A person designing a user interface on a large screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx1aSUyMHV4JTIwZGVzaWdufGVufDB8fHx8MTc2MDMzMzIzMnww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "ui ux"
+    },
+    {
+      "id": "session-25",
+      "description": "A diagram of a complex cloud architecture on a whiteboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1549231481-678096a1a120?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NjAzMzMyODF8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "cloud architecture"
+    },
+    {
       "id": "speaker-1",
       "description": "Headshot of a smiling woman with dark hair, professional attire.",
       "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODY0MDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -41,6 +167,18 @@
       "description": "Headshot of a person with short hair, looking thoughtfully at the camera.",
       "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg2OTE2MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "speaker-4",
+      "description": "Portrait of a confident man with short hair in a casual shirt.",
+      "imageUrl": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTg3MjgyOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "speaker-5",
+      "description": "Portrait of a woman with curly hair smiling warmly.",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1ODcyODM1OXww&ixlib=rb-4.1.0&q=80&w=1080&fit=max",
+      "imageHint": "woman portrait"
     },
     {
       "id": "user-avatar-1",

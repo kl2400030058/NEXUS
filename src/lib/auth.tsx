@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await new Promise(res => setTimeout(res, 500));
     const profile = await getUserProfile(MOCK_USER_ID);
      if(profile) {
-      setUser({...profile, name, email});
+      setUser({...profile, name, email, role: 'user'}); // New users are always 'user'
       if (typeof window !== 'undefined') {
         localStorage.setItem('isLoggedIn', 'true');
       }
@@ -90,10 +90,29 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (user) {
         setUser(prevUser => {
             if (!prevUser) return null;
-            const bookedSessions = prevUser.bookedSessions.includes(sessionId)
-                ? prevUser.bookedSessions.filter(id => id !== sessionId)
-                : [...prevUser.bookedSessions, sessionId];
-            return { ...prevUser, bookedSessions };
+            
+            const isBooking = !prevUser.bookedSessions.includes(sessionId);
+            const bookedSessions = isBooking
+                ? [...prevUser.bookedSessions, sessionId]
+                : prevUser.bookedSessions.filter(id => id !== sessionId);
+
+            const pointsChange = isBooking ? 10 : -10;
+            const newPoints = prevUser.gamification.points + pointsChange;
+
+            const newBadges = [...prevUser.gamification.badges];
+            if(newPoints >= 1300 && !newBadges.includes("Super Fan")) {
+                newBadges.push("Super Fan");
+            }
+
+            return { 
+                ...prevUser, 
+                bookedSessions,
+                gamification: {
+                    ...prevUser.gamification,
+                    points: newPoints,
+                    badges: newBadges
+                }
+            };
         });
         await new Promise(res => setTimeout(res, 300));
     }

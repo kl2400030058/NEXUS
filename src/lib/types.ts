@@ -1,7 +1,10 @@
+
+
 export type Speaker = {
   id: string;
   name: string;
   bio: string;
+  email: string;
   avatarImageId: string;
 };
 
@@ -15,7 +18,11 @@ export type Session = {
   time: string;
   venue: string;
   coverImageId: string;
-  category: 'Workshop' | 'Talk' | 'Codelab';
+  category: 'Workshop' | 'Talk' | 'Codelab' | 'Hackathon' | 'Contest';
+  teamSize?: number;
+  resources?: { name: string; url: string }[];
+  tags: string[];
+  contributions: number;
 };
 
 export type UserProfile = {
@@ -27,10 +34,21 @@ export type UserProfile = {
   chapter: string;
   bookedSessions: string[];
   avatarImageId: string;
+  role: 'user' | 'admin';
+  notificationPreferences: {
+    sessionReminders: boolean;
+    communityNewsletters: boolean;
+  };
+  gamification: {
+    points: number;
+    badges: string[];
+    achievements: string[];
+  };
 };
 
 export type ChatMessage = {
   id: string;
   role: 'user' | 'assistant';
   content: string;
+  suggestions?: string[];
 };
