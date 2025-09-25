@@ -1,3 +1,4 @@
+
 "use client";
 
 import { getSessions } from '@/lib/data';
@@ -7,12 +8,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { placeholderImages } from '@/lib/placeholder-images.json';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, Users, Code, Award } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { Session, Speaker } from '@/lib/types';
 
 const filterCategories = [
   "All", "Web Dev", "Gen AI", "Cloud", "Mobile", "UI/UX"
+];
+
+const featureHighlights = [
+  {
+    icon: Award,
+    title: "Learn from Experts",
+    description: "Our sessions are led by industry veterans, Google Developer Experts, and passionate community leaders who are masters of their craft."
+  },
+  {
+    icon: Code,
+    title: "Hands-On Learning",
+    description: "Go beyond theory. Dive deep into the latest technologies with expert-led workshops and interactive codelabs designed to build practical skills."
+  },
+  {
+    icon: Users,
+    title: "Build Your Network",
+    description: "Connect with a diverse, global community of developers, designers, and tech enthusiasts. Share ideas, collaborate, and grow together."
+  }
 ];
 
 export default function Home() {
@@ -95,6 +114,28 @@ export default function Home() {
                     </Button>
                 ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-headline">The Ultimate Hub for Developers</h2>
+            <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
+              Project Nexus is more than just an event platform. It's a community-driven ecosystem designed for growth and collaboration.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {featureHighlights.map((feature, index) => (
+              <div key={index} className="flex flex-col items-center p-6 border border-transparent rounded-lg hover:bg-muted/50 transition-colors">
+                <div className="bg-primary/10 p-4 rounded-full mb-4">
+                  <feature.icon className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">{feature.title}</h3>
+                <p className="text-muted-foreground mt-2">{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
