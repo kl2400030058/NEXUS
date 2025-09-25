@@ -55,7 +55,8 @@ const sessions: Session[] = [
         { name: 'Presentation Slides', url: '#' },
         { name: 'Gemini API Docs', url: '#' }
     ],
-    tags: ['Gen AI', 'AI/ML']
+    tags: ['Gen AI', 'AI/ML'],
+    contributions: 1,
   },
   {
     id: 'session-2',
@@ -71,7 +72,8 @@ const sessions: Session[] = [
     resources: [
         { name: 'Workshop Materials (GitHub)', url: '#' },
     ],
-    tags: ['UI/UX', 'Web Dev']
+    tags: ['UI/UX', 'Web Dev'],
+    contributions: 2,
   },
   {
     id: 'session-3',
@@ -88,7 +90,8 @@ const sessions: Session[] = [
        { name: 'Codelab Instructions', url: '#' },
        { name: 'Starter Project (GitHub)', url: '#' }
     ],
-    tags: ['Web Dev', 'Cloud']
+    tags: ['Web Dev', 'Cloud'],
+    contributions: 3,
   },
    {
     id: 'session-4',
@@ -102,7 +105,8 @@ const sessions: Session[] = [
     coverImageId: 'session-5',
     category: 'Talk',
     resources: [],
-    tags: ['Mobile']
+    tags: ['Mobile'],
+    contributions: 1,
   },
   {
     id: 'session-5',
@@ -118,7 +122,8 @@ const sessions: Session[] = [
      resources: [
        { name: 'OWASP Top 10', url: '#' },
     ],
-    tags: ['Web Dev', 'Security']
+    tags: ['Web Dev', 'Security'],
+    contributions: 2,
   },
    {
     id: 'session-6',
@@ -134,7 +139,8 @@ const sessions: Session[] = [
     resources: [
        { name: 'Presentation Slides', url: '#' },
     ],
-    tags: ['Tools', 'Web Dev']
+    tags: ['Tools', 'Web Dev'],
+    contributions: 1,
   },
   {
     id: 'session-7',
@@ -150,7 +156,8 @@ const sessions: Session[] = [
     resources: [
        { name: 'API Starter Kit (GitHub)', url: '#' },
     ],
-    tags: ['Web Dev', 'Cloud']
+    tags: ['Web Dev', 'Cloud'],
+    contributions: 2,
   },
   {
     id: 'session-8',
@@ -166,7 +173,8 @@ const sessions: Session[] = [
     resources: [
        { name: 'PWA Codelab Guide', url: '#' },
     ],
-    tags: ['Web Dev', 'Mobile']
+    tags: ['Web Dev', 'Mobile'],
+    contributions: 3,
   },
   {
     id: 'session-9',
@@ -182,7 +190,8 @@ const sessions: Session[] = [
     resources: [
         { name: 'Angular Signals Docs', url: '#' },
     ],
-    tags: ['Web Dev', 'Angular']
+    tags: ['Web Dev', 'Angular'],
+    contributions: 3,
   },
   {
     id: 'session-10',
@@ -195,8 +204,10 @@ const sessions: Session[] = [
     venue: 'Innovation Hub',
     coverImageId: 'session-11',
     category: 'Hackathon',
+    teamSize: 4,
     resources: [],
-    tags: ['Gen AI', 'Hackathon']
+    tags: ['Gen AI', 'Hackathon'],
+    contributions: 5,
   },
   {
     id: 'session-11',
@@ -209,8 +220,10 @@ const sessions: Session[] = [
     venue: 'Virtual Event',
     coverImageId: 'session-12',
     category: 'Hackathon',
+    teamSize: 3,
     resources: [],
-    tags: ['Cloud', 'Hackathon']
+    tags: ['Cloud', 'Hackathon'],
+    contributions: 5,
   },
   {
     id: 'session-12',
@@ -223,8 +236,10 @@ const sessions: Session[] = [
     venue: 'Community Hall',
     coverImageId: 'session-13',
     category: 'Hackathon',
+    teamSize: 5,
     resources: [],
-    tags: ['Mobile', 'Flutter', 'Hackathon']
+    tags: ['Mobile', 'Flutter', 'Hackathon'],
+    contributions: 5,
   },
   {
     id: 'session-13',
@@ -237,8 +252,10 @@ const sessions: Session[] = [
     venue: 'Online',
     coverImageId: 'session-14',
     category: 'Hackathon',
+    teamSize: 2,
     resources: [],
-    tags: ['Security', 'Hackathon']
+    tags: ['Security', 'Hackathon'],
+    contributions: 5,
   },
   {
     id: 'session-14',
@@ -251,8 +268,10 @@ const sessions: Session[] = [
     venue: 'University Campus',
     coverImageId: 'session-15',
     category: 'Hackathon',
+    teamSize: 4,
     resources: [],
-    tags: ['Social Good', 'Hackathon']
+    tags: ['Social Good', 'Hackathon'],
+    contributions: 5,
   },
   {
     id: 'session-15',
@@ -266,7 +285,8 @@ const sessions: Session[] = [
     coverImageId: 'session-16',
     category: 'Contest',
     resources: [],
-    tags: ['Algorithms', 'Contest']
+    tags: ['Algorithms', 'Contest'],
+    contributions: 4,
   },
   {
     id: 'session-16',
@@ -280,7 +300,8 @@ const sessions: Session[] = [
     coverImageId: 'session-17',
     category: 'Workshop',
     resources: [],
-    tags: ['UI/UX', 'Design']
+    tags: ['UI/UX', 'Design'],
+    contributions: 2,
   },
   {
     id: 'session-17',
@@ -294,7 +315,8 @@ const sessions: Session[] = [
     coverImageId: 'session-18',
     category: 'Workshop',
     resources: [],
-    tags: ['Go', 'Backend']
+    tags: ['Go', 'Backend'],
+    contributions: 2,
   },
   {
     id: 'session-18',
@@ -308,7 +330,8 @@ const sessions: Session[] = [
     coverImageId: 'session-19',
     category: 'Workshop',
     resources: [],
-    tags: ['Mobile', 'Android', 'Kotlin']
+    tags: ['Mobile', 'Android', 'Kotlin'],
+    contributions: 2,
   },
   {
     id: 'session-19',
@@ -322,7 +345,8 @@ const sessions: Session[] = [
     coverImageId: 'session-20',
     category: 'Workshop',
     resources: [],
-    tags: ['Web Dev', 'Data']
+    tags: ['Web Dev', 'Data'],
+    contributions: 2,
   },
   {
     id: 'session-20',
@@ -336,7 +360,8 @@ const sessions: Session[] = [
     coverImageId: 'session-21',
     category: 'Contest',
     resources: [],
-    tags: ['Algorithms', 'Contest']
+    tags: ['Algorithms', 'Contest'],
+    contributions: 4,
   },
   {
     id: 'session-21',
@@ -350,7 +375,8 @@ const sessions: Session[] = [
     coverImageId: 'session-22',
     category: 'Contest',
     resources: [],
-    tags: ['QA', 'Contest']
+    tags: ['QA', 'Contest'],
+    contributions: 4,
   },
   {
     id: 'session-22',
@@ -364,7 +390,8 @@ const sessions: Session[] = [
     coverImageId: 'session-23',
     category: 'Contest',
     resources: [],
-    tags: ['Gen AI', 'Contest']
+    tags: ['Gen AI', 'Contest'],
+    contributions: 4,
   },
   {
     id: 'session-23',
@@ -378,7 +405,8 @@ const sessions: Session[] = [
     coverImageId: 'session-24',
     category: 'Contest',
     resources: [],
-    tags: ['UI/UX', 'Design', 'Contest']
+    tags: ['UI/UX', 'Design', 'Contest'],
+    contributions: 4,
   },
   {
     id: 'session-24',
@@ -392,7 +420,8 @@ const sessions: Session[] = [
     coverImageId: 'session-25',
     category: 'Contest',
     resources: [],
-    tags: ['Cloud', 'Contest']
+    tags: ['Cloud', 'Contest'],
+    contributions: 4,
   }
 ];
 
@@ -404,7 +433,7 @@ const userProfiles: UserProfile[] = [
         bio: 'Frontend developer passionate about React and building beautiful UIs.',
         skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Firebase'],
         chapter: 'GDG Mountain View',
-        bookedSessions: ['session-1'],
+        bookedSessions: ['session-1', 'session-2', 'session-5', 'session-8', 'session-10'],
         avatarImageId: 'user-avatar-1',
         role: 'admin',
         notificationPreferences: {
@@ -462,3 +491,4 @@ export const getUserProfile = async (uid: string): Promise<UserProfile | undefin
         }, 200);
     });
 }
+

@@ -22,6 +22,7 @@ export type Session = {
   teamSize?: number;
   resources?: { name: string; url: string }[];
   tags: string[];
+  contributions: number;
 };
 
 export type UserProfile = {

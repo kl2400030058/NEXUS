@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -21,9 +22,10 @@ import { Badge } from '@/components/ui/badge';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Skeleton } from "@/components/ui/skeleton";
 import { placeholderImages } from '@/lib/placeholder-images.json';
-import { Loader2, Calendar, ArrowRight, Bell, Award, Star, BookUser } from 'lucide-react';
+import { Loader2, Calendar, ArrowRight, Bell, Award, Star, BookUser, History } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Switch } from '@/components/ui/switch';
+import { ContributionGraph } from '@/components/profile/contribution-graph';
 
 const profileSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -44,6 +46,7 @@ export default function ProfilePage() {
   const [isSaving, setIsSaving] = useState(false);
   const { toast } = useToast();
   const [bookedSessions, setBookedSessions] = useState<(Session & { speaker: Speaker })[]>([]);
+  const [allSessions, setAllSessions] = useState<(Session & { speaker: Speaker; })[]>([]);
   const [sessionsLoading, setSessionsLoading] = useState(true);
 
   const form = useForm<ProfileFormValues>({
@@ -75,6 +78,7 @@ export default function ProfilePage() {
       
       setSessionsLoading(true);
       getSessions().then(allSessions => {
+        setAllSessions(allSessions);
         const userBooked = allSessions.filter(s => user.bookedSessions.includes(s.id));
         setBookedSessions(userBooked);
         setSessionsLoading(false);
@@ -116,6 +120,7 @@ export default function ProfilePage() {
   
   const userImage = placeholderImages.find(p => p.id === user.avatarImageId);
   const { gamification } = user;
+  const contributionData = allSessions.filter(session => user.bookedSessions.includes(session.id));
 
   return (
     <div className="container mx-auto max-w-6xl py-12">
@@ -211,6 +216,23 @@ export default function ProfilePage() {
                       ))}
                   </div>
               </CardContent>
+            </Card>
+
+             <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <History className="h-5 w-5 text-primary"/>
+                        Contribution Activity
+                    </CardTitle>
+                    <CardDescription>Your event attendance over the last year.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {sessionsLoading ? (
+                        <Skeleton className="h-36 w-full" />
+                    ) : (
+                        <ContributionGraph data={contributionData} />
+                    )}
+                </CardContent>
             </Card>
 
             <Card>
@@ -336,6 +358,15 @@ function ProfileSkeleton() {
                             <div className="space-y-2"><Skeleton className="h-4 w-1/4" /><Skeleton className="h-10 w-full" /></div>
                             <div className="space-y-2"><Skeleton className="h-4 w-1/4" /><Skeleton className="h-20 w-full" /></div>
                             <div className="space-y-2"><Skeleton className="h-4 w-1/4" /><Skeleton className="h-10 w-full" /></div>
+                        </CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader>
+                            <Skeleton className="h-8 w-1/2" />
+                            <Skeleton className="h-5 w-3/4" />
+                        </CardHeader>
+                        <CardContent>
+                           <Skeleton className="h-36 w-full" />
                         </CardContent>
                     </Card>
                      <Card>
